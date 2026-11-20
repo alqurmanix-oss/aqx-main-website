@@ -183,13 +183,13 @@ async function profile(identifier,isSlug){
   const owner=!!currentSession&&currentSession.user.aqx_id===p.aqx_id;
   $('ratingFormWrap').hidden=!currentSession||owner;$('ratingLogin').hidden=!!currentSession||owner;
   $('commentFormWrap').hidden=!currentSession||!p.comments_enabled;$('commentLogin').hidden=!!currentSession||!p.comments_enabled;
-  $('contactSection').hidden=!p.contact_enabled&&!owner;
+  $('contactSection').hidden=!p.contact_enabled&&!currentSession&&!owner;
   $('messageLogin').hidden=!!currentSession||!p.contact_enabled;
   $('messageFormWrap').hidden=!currentSession||owner||!p.contact_enabled;
   $('inbox').hidden=!currentSession;
   $('analyticsSection').hidden=!owner;
   await loadComments();
-  if(currentSession&&(p.contact_enabled||owner))await loadMessages();
+  if(currentSession)await loadMessages();
   if(owner){await loadAnalytics().catch(e=>$('analyticsMeta').textContent=e.message);}
   const canonical='https://alqurmanix.com/writer.html?id='+encodeURIComponent(p.id);let link=document.querySelector('link[rel="canonical"]');if(!link){link=document.createElement('link');link.rel='canonical';document.head.appendChild(link)}link.href=canonical;
 }
