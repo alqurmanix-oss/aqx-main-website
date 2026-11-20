@@ -157,7 +157,7 @@ async function profile(identifier,isSlug){
   document.querySelector('meta[name="description"]').content=p.bio||'الصفحة العامة لشخصية الكاتب '+p.display_name+' على AQX.';
   const m=await media(p.id);$('avatar').src=safeUrl(m.avatar_url)||'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="100%" height="100%" rx="24" fill="#f0ebfb"/><text x="50%" y="58%" text-anchor="middle" font-size="52" fill="#7650df">✍</text></svg>');
   if(safeUrl(m.cover_url))$('cover').style.backgroundImage='url("'+safeUrl(m.cover_url).replace(/"/g,'%22')+'")';
-  $('name').textContent=p.display_name;$('headline').textContent=p.headline||p.professional_title||'';
+  $('name').textContent=p.display_name;$('headline').textContent=p.headline||p.professional_title||'';$('verify').textContent=p.is_verified?'✓ شخصية كاتب موثّقة من AQX':'';
   $('role').textContent=[p.pen_name?'الاسم الأدبي: '+p.pen_name:'',p.years_experience?'خبرة '+p.years_experience+' سنة':'',p.city||'',p.country_code||''].filter(Boolean).join(' • ');
   $('bio').textContent=p.bio||'لم يضف الكاتب نبذة تعريفية بعد.';
   const web=safeUrl(p.website);$('website').hidden=!web;if(web)$('website').href=web;
