@@ -54,6 +54,49 @@ footer{text-align:center;color:var(--muted);padding:25px 15px;border-top:1px sol
   <section class="section"><h2>روابط وأعمال AQX</h2><div id="works" class="grid"></div></section>
   <section class="section"><h2>معرض الأعمال</h2><div id="portfolio" class="grid"></div></section>
   <section class="section card"><h2>المهارات</h2><div id="skills" class="chips"></div></section>
+
+  <section class="section card" id="businessSection" hidden><h2>المطعم أو مشروع الأكل البيتي والعمل المهني</h2><div id="chefBusinesses" class="grid"></div></section>
+  <section class="section" id="catalogSection" hidden><h2>كتالوج الأطباق والوصفات</h2><p class="muted">الأسعار والتوافر يحددهما الطاهي. الاستفسار والطلب عبر مراسلته داخل AQX.</p><div id="chefCatalog" class="grid"></div></section>
+  <section class="section card" id="judgeBadge" hidden><h2>التحكيم والمسابقات</h2><p>هذا الطاهي حاصل على اعتماد AQX للتحكيم. تعيينه في أي مسابقة يتم من خلال منظومة المسابقات وصلاحيات المنظمين.</p></section>
+  <section class="section card" id="chefOwnerTools" hidden>
+    <h2>إدارة ملف الطاهي</h2>
+    <div class="form-grid">
+      <form id="chefCatalogForm" class="notice">
+        <h3>إضافة طبق أو وصفة للكتالوج</h3>
+        <label>نوع العنصر<select id="chefItemType" class="field"><option value="signature_dish">طبق مميز</option><option value="recipe">وصفة</option><option value="menu_item">صنف قائمة طعام</option><option value="meal_box">وجبة جاهزة</option><option value="bakery_item">مخبوزات</option><option value="dessert">حلويات</option><option value="catering_package">باقة ضيافة</option><option value="menu">قائمة طعام كاملة</option><option value="cooking_class">درس طهي</option></select></label>
+        <label>اسم الطبق أو الوصفة<input id="chefItemTitle" class="field" required maxlength="160"></label>
+        <label>الوصف<textarea id="chefItemDescription" class="field" rows="2"></textarea></label>
+        <label>المكونات (افصل بينها بفواصل)<input id="chefItemIngredients" class="field"></label>
+        <label>مسببات الحساسية<input id="chefItemAllergens" class="field" placeholder="جلوتين، ألبان، مكسرات..."></label>
+        <div class="form-grid"><label>السعر<input id="chefItemPrice" class="field" type="number" min="0" step="0.01"></label><label>العملة<select id="chefItemCurrency" class="field"><option>EGP</option><option>USD</option><option>SAR</option><option>AED</option></select></label></div>
+        <label>التوافر<select id="chefItemAvailability" class="field"><option value="available">متاح</option><option value="preorder">حجز مسبق</option><option value="seasonal">موسمي</option><option value="unavailable">غير متاح</option></select></label>
+        <label><input id="chefItemOrderable" type="checkbox"> استقبال استفسارات أو طلبات على هذا العنصر</label>
+        <button class="btn" type="submit">حفظ الكتالوج للمراجعة</button>
+      </form>
+      <form id="chefBusinessForm" class="notice">
+        <h3>إضافة مطعم أو نشاط أكل بيتي</h3>
+        <label>نوع النشاط<select id="chefBusinessKind" class="field"><option value="restaurant">مطعم</option><option value="home_food">أكل بيتي</option><option value="catering">تموين وولائم</option><option value="bakery">مخبز أو حلويات</option><option value="cafe">مقهى</option><option value="hotel">فندق</option><option value="cloud_kitchen">مطبخ سحابي</option><option value="employer">جهة عمل</option><option value="other">أخرى</option></select></label>
+        <label>علاقته بالنشاط<select id="chefBusinessRelation" class="field"><option value="owner">مالك</option><option value="co_owner">شريك مالك</option><option value="employee">موظف</option><option value="executive_chef">شيف تنفيذي</option><option value="consultant">استشاري</option><option value="freelancer">مستقل</option><option value="partner">شريك</option><option value="former_employee">عمل سابق</option></select></label>
+        <label>اسم المطعم أو النشاط<input id="chefBusinessName" class="field" required maxlength="180"></label>
+        <label>المدينة<input id="chefBusinessCity" class="field"></label>
+        <label>رابط النشاط أو صفحته<input id="chefBusinessUrl" class="field" type="url" placeholder="https://..."></label>
+        <label>مرجع إثبات الملكية أو العمل<input id="chefBusinessProof" class="field" placeholder="مرجع مستند أو طلب تحقق"></label>
+        <button class="btn" type="submit">إرسال بيانات النشاط للتحقق</button>
+      </form>
+    </div>
+    <form id="chefJudgeForm" class="notice" style="margin-top:14px">
+      <h3>طلب اعتماد محكّم طهاة ووصفات</h3>
+      <div class="form-grid">
+        <label>مجال التحكيم<select id="chefJudgeDomain" class="field"><option value="culinary_general">الطهي العام</option><option value="egyptian_cuisine">المطبخ المصري</option><option value="international_cuisine">المطابخ العالمية</option><option value="pastry">الحلويات</option><option value="bakery">المخبوزات</option><option value="food_safety">سلامة الغذاء</option><option value="nutrition_labeling">بيانات التغذية والملصقات</option><option value="recipe_development">تطوير الوصفات</option><option value="restaurant_operations">إدارة المطاعم</option><option value="home_food_business">مشروعات الأكل البيتي</option></select></label>
+        <label>المؤهل أو الخبرة<input id="chefJudgeTitle" class="field" maxlength="180"></label>
+        <label>سنوات الخبرة<input id="chefJudgeYears" class="field" type="number" min="0" max="80" step="0.5"></label>
+        <label>مرجع الشهادة أو الخبرة<input id="chefJudgeEvidence" class="field" maxlength="500"></label>
+      </div>
+      <label><input id="chefJudgeConflict" type="checkbox" required> أوافق على الإفصاح عن تضارب المصالح والامتناع عن تقييم أي مشاركة تربطني بها مصلحة.</label>
+      <button class="btn" type="submit">تقديم طلب اعتماد المحكّم</button>
+    </form>
+    <div id="chefOwnerSummary" class="muted" style="margin-top:12px"></div>
+  </section>
   <section class="section card"><h2>تقييمات القراء</h2><div id="ratingBreakdown" class="muted"></div><div id="ratings"></div>
     <div id="ratingFormWrap" class="notice" style="margin-top:14px" hidden>
       <h3 style="margin:0 0 8px">قيّم تجربة التعامل مع الطاهي</h3>
@@ -147,6 +190,18 @@ async function loadAnalytics(){
   $('analyticsVisits').textContent=a.total_visits??0;$('analyticsUnique').textContent=a.unique_observed_visitors??0;
   $('analyticsMeta').textContent='الفترة: '+($('analyticsPeriod').selectedOptions[0]?.textContent||'')+' • التوقيت: '+(a.timezone||'Africa/Cairo');
 }
+
+async function loadChefOwnerTools(){
+  try{
+    const [catalog,affiliations,judges]=await Promise.all([bridge('my_catalog',{},currentSession),bridge('my_affiliations',{},currentSession),bridge('my_judge_qualifications',{},currentSession)]);
+    const statusLabel={draft:'مسودة',pending_review:'قيد المراجعة',published:'منشور',rejected:'مرفوض',archived:'مؤرشف',pending:'قيد التحقق',unverified:'غير موثق',verified:'موثق',approved:'معتمد',suspended:'موقوف',expired:'منتهي'};
+    $('chefOwnerSummary').textContent='الكتالوج: '+(catalog.catalog||[]).length+' عنصر • الأنشطة: '+(affiliations.affiliations||[]).length+' • طلبات التحكيم: '+(judges.qualifications||[]).map(x=>(x.judging_domain||'')+' ('+(statusLabel[x.status]||x.status)+')').join('، ');
+  }catch(e){$('chefOwnerSummary').textContent='تعذر تحميل لوحة إدارة الملف: '+e.message;}
+}
+$('chefCatalogForm').addEventListener('submit',async e=>{e.preventDefault();try{const price=$('chefItemPrice').value;await bridge('save_catalog',{item:{item_type:$('chefItemType').value,title:$('chefItemTitle').value,description:$('chefItemDescription').value,ingredients:$('chefItemIngredients').value.split(',').map(x=>x.trim()).filter(Boolean),allergens:$('chefItemAllergens').value.split(',').map(x=>x.trim()).filter(Boolean),price_amount:price===''?null:Number(price),currency_code:$('chefItemCurrency').value,is_orderable:$('chefItemOrderable').checked,availability_status:$('chefItemAvailability').value}},currentSession);e.target.reset();alert('تم حفظ العنصر وإرساله للمراجعة قبل النشر.');await loadChefOwnerTools();}catch(err){alert(err.message);}});
+$('chefBusinessForm').addEventListener('submit',async e=>{e.preventDefault();try{await bridge('save_affiliation',{item:{business_kind:$('chefBusinessKind').value,relationship:$('chefBusinessRelation').value,business_name:$('chefBusinessName').value,city:$('chefBusinessCity').value,external_business_url:$('chefBusinessUrl').value||null,proof_reference:$('chefBusinessProof').value||null,public_display:true}},currentSession);e.target.reset();alert('تم إرسال بيانات النشاط للتحقق. لن تظهر للعامة قبل اعتمادها.');await loadChefOwnerTools();}catch(err){alert(err.message);}});
+$('chefJudgeForm').addEventListener('submit',async e=>{e.preventDefault();try{await bridge('apply_judge',{judging_domain:$('chefJudgeDomain').value,qualification_title:$('chefJudgeTitle').value||null,experience_years:$('chefJudgeYears').value===''?null:Number($('chefJudgeYears').value),evidence_reference:$('chefJudgeEvidence').value||null,conflict_of_interest_policy_accepted:$('chefJudgeConflict').checked},currentSession);e.target.reset();alert('تم تقديم طلب اعتماد المحكّم، وسيظل قيد المراجعة حتى صدور القرار.');await loadChefOwnerTools();}catch(err){alert(err.message);}});
+
 async function profile(identifier,isSlug){
   $('directoryHero').hidden=true;$('directoryTools').hidden=true;$('directory').hidden=true;
   const filter=isSlug?'slug=eq.'+encodeURIComponent(identifier):'id=eq.'+encodeURIComponent(identifier);
@@ -156,7 +211,7 @@ async function profile(identifier,isSlug){
   document.querySelector('meta[name="description"]').content=p.bio||'الصفحة العامة لشخصية الطاهي '+p.display_name+' على AQX.';
   const m=await media(p.id);$('avatar').src=safeUrl(m.avatar_url)||'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="100%" height="100%" rx="24" fill="#f0ebfb"/><text x="50%" y="58%" text-anchor="middle" font-size="52" fill="#7650df">🍳</text></svg>');
   if(safeUrl(m.cover_url))$('cover').style.backgroundImage='url("'+safeUrl(m.cover_url).replace(/"/g,'%22')+'")';
-  $('name').textContent=p.display_name;$('headline').textContent=p.headline||p.professional_title||'';$('verify').textContent=p.is_verified?'✓ شخصية الطاهي موثّقة من AQX':'';
+  $('name').textContent=p.display_name;$('headline').textContent=p.headline||p.professional_title||'';$('verify').textContent=p.is_identity_verified?'✓ الهوية موثقة من AQX':'';if(p.is_professional_verified)$('verify').textContent+=' • مؤهلات مهنية معتمدة';if(p.is_food_safety_verified)$('verify').textContent+=' • سلامة الغذاء معتمدة';$('judgeBadge').hidden=!p.is_approved_judge;
   $('role').textContent=[p.years_experience?'خبرة '+p.years_experience+' سنة':'',p.city||'',p.country_code||''].filter(Boolean).join(' • ');
   $('bio').textContent=p.bio||'لم يضف الطاهي نبذة تعريفية بعد.';
   const web=safeUrl(p.website);$('website').hidden=!web;if(web)$('website').href=web;
@@ -164,12 +219,31 @@ async function profile(identifier,isSlug){
   const socials=Object.entries(p.social_links||{}).map(([k,v])=>{const u=safeUrl(v);return u?'<a class="pill" target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">'+esc(k)+'</a>':''}).join('');
   $('socialLinks').innerHTML=socials;$('publicEmail').innerHTML=p.public_contact_email?'<a href="mailto:'+esc(p.public_contact_email)+'">البريد المهني</a>':'';
   $('ratingValue').textContent=p.average_rating??'—';$('ratingCount').textContent=p.review_count||0;
-  const [works,portfolio,skills,links,reviews]=await Promise.all([
+  const [works,portfolio,skills,links,reviews,catalogData,businessData]=await Promise.all([
     bridge('works'),idGet('aqx_persona_portfolio','select=id,title,description,item_type,media_url,project_url,created_at&persona_id=eq.'+p.id+'&visibility=eq.public&order=sort_order.asc'),
     idGet('aqx_persona_skills','select=skill_name,proficiency,years_experience,sort_order&persona_id=eq.'+p.id+'&order=sort_order.asc'),
     idGet('aqx_persona_links','select=label,url,link_type,sort_order&persona_id=eq.'+p.id+'&order=sort_order.asc'),
-    bridge('reviews')
+    bridge('reviews'),bridge('catalog'),bridge('affiliations')
   ]);
+
+  const catalog=catalogData.catalog||[];
+  $('catalogSection').hidden=!catalog.length;
+  $('chefCatalog').innerHTML=catalog.length?catalog.map(it=>{
+    const media=Array.isArray(it.media_urls)?it.media_urls.map(x=>typeof x==='string'?x:x?.url).filter(Boolean):[];
+    const img=safeUrl(media[0]);
+    const ingredients=Array.isArray(it.ingredients)?it.ingredients.map(x=>typeof x==='string'?x:(x?.name||'')).filter(Boolean).join('، '):'';
+    const allergens=Array.isArray(it.allergens)?it.allergens.join('، '):'';
+    const price=it.price_amount!==null&&it.price_amount!==undefined?'<span class="pill">'+Number(it.price_amount).toFixed(2)+' '+esc(it.currency_code||'EGP')+'</span>':'';
+    return '<article class="card work">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'<h3>'+esc(it.title)+'</h3><p class="muted">'+esc(it.description||'')+'</p><div class="chips">'+price+'<span class="pill">'+esc(it.availability_status||'')+'</span></div>'+(ingredients?'<p><b>المكونات:</b> '+esc(ingredients)+'</p>':'')+(allergens?'<p><b>مسببات الحساسية:</b> '+esc(allergens)+'</p>':'')+(it.is_orderable&&p.contact_enabled?'<a class="btn" href="#contactSection">استفسر عن الطلب</a>':'')+'</article>';
+  }).join(''):'';
+  const businesses=businessData.affiliations||[];
+  $('businessSection').hidden=!businesses.length;
+  $('chefBusinesses').innerHTML=businesses.length?businesses.map(b=>{
+    const url=safeUrl(b.external_business_url);
+    const kinds={restaurant:'مطعم',home_food:'مشروع أكل بيتي',catering:'تموين وولائم',bakery:'مخبز أو حلويات',cafe:'مقهى',hotel:'فندق',cloud_kitchen:'مطبخ سحابي',employer:'جهة عمل',other:'نشاط آخر'};
+    const rel={owner:'مالك',co_owner:'شريك مالك',employee:'موظف',executive_chef:'شيف تنفيذي',consultant:'استشاري',freelancer:'مستقل',partner:'شريك',former_employee:'عمل سابق'};
+    return '<article class="card work"><h3>'+esc(b.business_name)+'</h3><p>'+esc(kinds[b.business_kind]||b.business_kind)+' • '+esc(rel[b.relationship]||b.relationship)+'</p><p class="muted">'+esc([b.city,b.country_code].filter(Boolean).join('، '))+'</p><span class="pill">تم التحقق من الارتباط</span>'+(url?'<p><a target="_blank" rel="noopener noreferrer" href="'+esc(url)+'">صفحة النشاط</a></p>':'')+'</article>';
+  }).join(''):'';
   $('worksCount').textContent=(works.works||[]).length;$('portfolioCount').textContent=portfolio.length;
   $('works').innerHTML=(works.works||[]).length?(works.works||[]).map(w=>{const u=safeUrl(w.canonical_url);return '<article class="card work">'+(safeUrl(w.image_url)?'<img src="'+esc(safeUrl(w.image_url))+'" alt="">':'')+'<h3>'+esc(w.title||'عمل منشور')+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(u?'<a target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">فتح الرابط ←</a>':'')+'</article>'}).join(''):'<div class="empty">لا توجد روابط منشورة مرتبطة بهذه الشخصية حتى الآن.</div>';
   $('portfolio').innerHTML=portfolio.length?portfolio.map(w=>{const u=safeUrl(w.project_url),img=safeUrl(w.media_url);return '<article class="card work">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'<h3>'+esc(w.title)+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(u?'<a target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">عرض العمل ←</a>':'')+'</article>'}).join(''):'<div class="empty">لم يضف الطاهي أعمالاً إلى معرضه بعد.</div>';
@@ -186,7 +260,7 @@ async function profile(identifier,isSlug){
   $('messageLogin').hidden=!!currentSession||!p.contact_enabled;
   $('messageFormWrap').hidden=!currentSession||owner||!p.contact_enabled;
   $('inbox').hidden=!currentSession;
-  $('analyticsSection').hidden=!owner;
+  $('analyticsSection').hidden=!owner;$('chefOwnerTools').hidden=!owner;if(owner)await loadChefOwnerTools();
   await loadComments();
   if(currentSession)await loadMessages();
   if(owner){await loadAnalytics().catch(e=>$('analyticsMeta').textContent=e.message);}
