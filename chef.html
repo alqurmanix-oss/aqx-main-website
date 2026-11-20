@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7650df"><meta name="description" content="الصفحات العامة لشخصيات الطاهي في AQX وأعمالهم وتقييماتهم.">
+<meta name="robots" content="index,follow"><title>طهاة AQX | القرماني إكس</title>
+<style>
+:root{--p:#7650df;--p2:#9a7af0;--sky:#54bde8;--ink:#251747;--muted:#706985;--line:#e8e1f6;--soft:#f0ebfb;--bg:#f7f5fc}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff 0,#f6f2ff 48%,#eef8ff 100%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;line-height:1.75}
+a{color:var(--p);text-decoration:none}a:hover{text-decoration:underline}button,input,textarea,select{font:inherit}
+header{background:#ffffffdf;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{max-width:1080px;margin:auto;padding:13px 20px;display:flex;align-items:center;gap:12px}.brand{font-weight:900;color:var(--p);font-size:1.25rem}.nav small{color:var(--muted);margin-inline-start:auto}
+main{max-width:1080px;margin:28px auto;padding:0 18px 60px}.hero{border:1px solid #e4dafb;border-radius:28px;padding:28px;background:linear-gradient(120deg,#fff,#f0eaff 60%,#e9f8ff);box-shadow:0 14px 40px #6845b510;margin-bottom:22px}
+.hero h1{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.3;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.search{flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 26px #36205b0a}
+.chef-card{display:flex;gap:14px;align-items:flex-start}.avatar{width:74px;height:74px;border-radius:20px;object-fit:cover;background:var(--soft);flex:none}.avatar.placeholder{display:grid;place-items:center;color:var(--p);font-size:1.8rem;font-weight:800}
+.chef-card h2{font-size:1.1rem;margin:0}.muted{color:var(--muted)}.pill{display:inline-flex;padding:3px 10px;border-radius:30px;background:var(--soft);color:#6545bd;font-size:.78rem;margin:4px 3px 0 0}
+.cover{height:210px;border-radius:24px 24px 0 0;background:linear-gradient(120deg,#c8b7f6,#b9e7f8);background-position:center;background-size:cover}
+.profile-head{overflow:hidden;padding:0}.profile-info{padding:20px 24px 24px;display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}.profile-avatar{width:112px;height:112px;border-radius:26px;border:5px solid white;object-fit:cover;background:var(--soft);margin-top:-65px;box-shadow:0 8px 24px #24144718}.profile-title{flex:1;min-width:210px}.profile-title h1{margin:0;font-size:clamp(1.5rem,4vw,2.2rem)}.verified{color:#168c69;font-size:.86rem}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stat{background:#f8f6fd;border:1px solid var(--line);border-radius:14px;padding:8px 13px;min-width:95px}.stat b{display:block;font-size:1.1rem}.stat small{color:var(--muted)}
+.section{margin-top:22px}.section h2{font-size:1.25rem;margin:0 0 12px}.chips{display:flex;gap:7px;flex-wrap:wrap}.work h3{margin:0 0 6px;font-size:1rem}.work img{width:100%;height:150px;object-fit:cover;border-radius:14px;margin-bottom:10px;background:var(--soft)}
+.stars{color:#e5a51b;letter-spacing:2px;white-space:nowrap}.rating-row{display:flex;justify-content:space-between;gap:10px;align-items:center}.comment{border-bottom:1px solid var(--line);padding:13px 0}.comment:last-child{border:0}.comment .by{font-weight:750}.chef-tag{font-size:.72rem;background:#e9f7ff;color:#14789c;border-radius:20px;padding:2px 8px;margin-inline-start:6px}
+.notice{padding:14px 16px;border-radius:16px;background:#f1edfb;color:#59448f;border:1px solid #e1d7f7}.empty{text-align:center;padding:35px 15px;color:var(--muted)}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--p);color:white;padding:9px 16px;border-radius:12px;font-weight:700}.btn:hover{background:#6240c5;text-decoration:none}.btn.secondary{background:#eee9fb;color:#5d42a8}.btn:disabled{opacity:.55;cursor:not-allowed}
+.field{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);margin:5px 0 12px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.convo{padding:12px;border:1px solid var(--line);border-radius:14px;margin:8px 0;cursor:pointer;background:#fff}.convo.active{border-color:var(--p);background:#f7f3ff}.msg{max-width:85%;padding:10px 13px;border-radius:15px;background:#f1edfb;margin:8px 0}.msg.mine{margin-right:auto;background:#e9f8ff}.msg small{display:block;color:var(--muted);font-size:.72rem}
+footer{text-align:center;color:var(--muted);padding:25px 15px;border-top:1px solid var(--line);font-size:.85rem}[hidden]{display:none!important}
+@media(max-width:620px){main{margin-top:18px}.hero{padding:22px}.profile-info{padding:16px}.cover{height:150px}.profile-avatar{width:92px;height:92px;margin-top:-52px}.form-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="https://alqurmanix.com/">AQX</a><span>شخصيات الطاهي</span><small>القرماني إكس</small></div></header>
+<main>
+<section class="hero" id="directoryHero"><h1>طهاة AQX</h1><p>اكتشف شخصيات الطاهي المسجلة في AQX، وتعرّف على أعمالهم وتقييماتهم.</p></section>
+<div class="toolbar" id="directoryTools"><input id="search" class="search" type="search" placeholder="ابحث باسم الطاهي أو التخصص..." aria-label="ابحث عن طاهٍ"></div>
+<div id="directory" class="grid" aria-live="polite"></div>
+<section id="profile" hidden>
+  <div class="card profile-head">
+    <div class="cover" id="cover"></div>
+    <div class="profile-info">
+      <img id="avatar" class="profile-avatar" alt="الصورة الشخصية للطاهٍ">
+      <div class="profile-title"><h1 id="name"></h1><div id="verify" class="verified"></div><div id="role" class="muted"></div><p id="headline" class="muted"></p></div>
+      <a id="website" class="btn" target="_blank" rel="noopener noreferrer" hidden>الموقع الشخصي</a>
+    </div>
+    <div class="stats" style="padding:0 24px 22px">
+      <div class="stat"><b id="worksCount">0</b><small>رابط منشور</small></div>
+      <div class="stat"><b id="portfolioCount">0</b><small>عمل في المعرض</small></div>
+      <div class="stat"><b id="ratingValue">—</b><small>متوسط التقييم</small></div>
+      <div class="stat"><b id="ratingCount">0</b><small>تقييم منشور</small></div>
+    </div>
+  </div>
+  <section class="section card"><h2>نبذة عن الطاهي</h2><p id="bio" class="muted"></p><div id="specialties" class="chips"></div><div id="workModes" class="chips" style="margin-top:8px"></div><div id="socialLinks" class="chips" style="margin-top:10px"></div><div id="publicEmail" style="margin-top:8px"></div></section>
+  <section class="section"><h2>روابط وأعمال AQX</h2><div id="works" class="grid"></div></section>
+  <section class="section"><h2>معرض الأعمال</h2><div id="portfolio" class="grid"></div></section>
+  <section class="section card"><h2>المهارات</h2><div id="skills" class="chips"></div></section>
+  <section class="section card"><h2>تقييمات القراء</h2><div id="ratingBreakdown" class="muted"></div><div id="ratings"></div>
+    <div id="ratingFormWrap" class="notice" style="margin-top:14px" hidden>
+      <h3 style="margin:0 0 8px">قيّم تجربة التعامل مع الطاهي</h3>
+      <form id="ratingForm"><div class="form-grid"><label>التقييم من 5<select id="ratingScore" class="field" required><option value="5">5 — ممتاز</option><option value="4">4 — جيد جداً</option><option value="3">3 — جيد</option><option value="2">2 — مقبول</option><option value="1">1 — ضعيف</option></select></label><label>مراجعتك<textarea id="ratingText" class="field" rows="2" maxlength="2000" placeholder="اكتب ملاحظتك (اختياري)"></textarea></label></div><button class="btn" type="submit">إرسال التقييم</button></form>
+    </div><div id="ratingLogin" class="notice" hidden>يلزم تسجيل الدخول بحساب AQX لإضافة تقييم. <a id="ratingLoginLink" href="https://id.alqurmanix.com/login.html">تسجيل الدخول</a></div>
+  </section>
+  <section class="section card"><h2>تعليقات القراء وردود الطاهي</h2><div id="comments"></div>
+    <div id="commentFormWrap" style="margin-top:12px" hidden><form id="commentForm"><label id="commentLabel">أضف تعليقاً</label><textarea id="commentBody" class="field" rows="3" maxlength="10000" required placeholder="اكتب تعليقك..."></textarea><input id="parentCommentId" type="hidden"><div class="form-actions"><button class="btn" type="submit">نشر التعليق</button><button id="cancelReply" class="btn secondary" type="button" hidden>إلغاء الرد</button></div></form></div>
+    <div id="commentLogin" class="notice" hidden>التعليق والرد متاحان لأعضاء AQX بعد تسجيل الدخول. <a id="commentLoginLink" href="https://id.alqurmanix.com/login.html">تسجيل الدخول</a></div>
+  </section>
+  <section class="section card" id="contactSection" hidden><h2>مراسلة الطاهي</h2><p class="muted">تصل الرسائل إلى صندوق مراسلات شخصية الطاهي داخل AQX.</p><div id="messageFormWrap" hidden><form id="messageForm"><textarea id="messageBody" class="field" rows="3" maxlength="5000" required placeholder="اكتب رسالتك للطاهٍ..."></textarea><button class="btn" type="submit">إرسال الرسالة</button></form></div><div id="messageLogin" class="notice" hidden>لإرسال رسالة، سجّل الدخول بحساب AQX. <a id="messageLoginLink" href="https://id.alqurmanix.com/login.html">تسجيل الدخول</a></div><div id="inbox" hidden><h3>صندوق مراسلات الطاهي</h3><div id="notifications" class="notice" style="margin:10px 0" hidden></div><div class="form-grid"><div id="conversations"></div><div><div id="messages"></div><form id="replyMessageForm" hidden><textarea id="replyMessageBody" class="field" rows="2" maxlength="5000" required placeholder="اكتب ردك..."></textarea><button class="btn" type="submit">إرسال الرد</button></form></div></div></div></section>
+  <section class="section card" id="analyticsSection" hidden><div class="rating-row"><h2 style="margin:0">إحصائيات الطاهي</h2><select id="analyticsPeriod" class="field" style="max-width:170px;margin:0"><option value="all">كل الفترات</option><option value="day">اليوم</option><option value="week">هذا الأسبوع</option><option value="month">هذا الشهر</option><option value="year">هذه السنة</option></select></div><div class="stats"><div class="stat"><b id="analyticsVisits">0</b><small>زيارة على روابط الطاهي</small></div><div class="stat"><b id="analyticsUnique">0</b><small>زائر فريد على روابطه</small></div></div><div id="analyticsMeta" class="muted"></div></section>
+  <p style="margin-top:18px"><a href="chef.html" class="btn">عرض جميع الطهاة</a></p>
+</section>
+<div id="status" class="empty" role="status">جارٍ تحميل البيانات...</div>
+</main>
+<footer>© AQX — القرماني إكس. جميع الحقوق محفوظة.</footer>
+<script>
+const ID_URL='https://fkiokwwztbyztleeuwks.supabase.co';
+const ID_KEY='sb_publishable_4DCXObCqPUoNnI8ANOo8dA_nRAg0y5_';
+const ENGINE_URL='https://vuszqzgldbsscuxdfhdz.supabase.co';
+const ENGINE_KEY='sb_publishable_cI7C0sL9M4OLvsa-JGAAFQ_KfqlkI7X';
+const BRIDGE=ENGINE_URL+'/functions/v1/aqx-persona-bridge';
+const MEDIA=ID_URL+'/functions/v1/aqx-persona-media';
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=v=>{try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
+const params=new URLSearchParams(location.search);
+let currentPersona=null,currentSession=null,currentConversation=null;
+async function idGet(table,query,session){const h={apikey:ID_KEY,Accept:'application/json'};if(session?.accessToken)h.Authorization='Bearer '+session.accessToken;const r=await fetch(ID_URL+'/rest/v1/'+table+'?'+query,{headers:h});if(!r.ok)throw new Error('تعذر تحميل '+table+' ('+r.status+')');return r.json()}
+async function idRpc(name,body,session){const r=await fetch(ID_URL+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:ID_KEY,Authorization:'Bearer '+session.accessToken,'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json().catch(()=>null);if(!r.ok)throw new Error(d?.message||'تعذر تنفيذ العملية');return d}
+async function bridge(action,data={},session){const h={apikey:ENGINE_KEY,'Content-Type':'application/json'};if(session){h.Authorization='Bearer '+session.accessToken;h['x-aqx-session']=session.sessionToken}const r=await fetch(BRIDGE,{method:'POST',headers:h,body:JSON.stringify({action,persona_id:currentPersona.id,...data})});const d=await r.json().catch(()=>null);if(!r.ok||d?.success!==true)throw new Error(d?.error||'تعذر تنفيذ الطلب');return d}
+async function media(personaId){const r=await fetch(MEDIA,{method:'POST',headers:{apikey:ID_KEY,'Content-Type':'application/json'},body:JSON.stringify({persona_id:personaId})});const d=await r.json().catch(()=>null);return r.ok&&d?.success?d:{avatar_url:null,cover_url:null}}
+function loginUrl(){return 'https://id.alqurmanix.com/login.html?return_to='+encodeURIComponent(location.href)}
+function setLoginLinks(){for(const id of ['ratingLoginLink','commentLoginLink','messageLoginLink'])$(id).href=loginUrl()}
+async function getSession(){
+  const localToken=localStorage.getItem('aqx_session_token')||'';
+  const tabToken=sessionStorage.getItem('aqx_session_token')||'';
+  if(!localToken||!tabToken||localToken!==tabToken)return null;
+  const raw=localStorage.getItem('sb-fkiokwwztbyztleeuwks-auth-token')||sessionStorage.getItem('sb-fkiokwwztbyztleeuwks-auth-token')||'';
+  let parsed={};try{parsed=JSON.parse(raw)}catch{}
+  const accessToken=parsed.access_token||parsed.currentSession?.access_token||'';
+  if(!accessToken)return null;
+  const h={apikey:ID_KEY,Authorization:'Bearer '+accessToken,'x-aqx-session':localToken,'Content-Type':'application/json'};
+  const check=await fetch(ID_URL+'/functions/v1/aqx-identity/v1/session/check',{method:'POST',headers:h,body:'{}'}).catch(()=>null);
+  if(!check||!check.ok)return null;const state=await check.json().catch(()=>null);if(state?.valid!==true)return null;
+  const me=await fetch(ID_URL+'/functions/v1/aqx-identity/v1/me',{method:'POST',headers:h,body:'{}'}).catch(()=>null);
+  if(!me||!me.ok)return null;const data=await me.json().catch(()=>null);if(data?.success!==true||!data?.profile?.user_id)return null;
+  return {accessToken,sessionToken:localToken,user:data.profile};
+}
+async function requireSession(){currentSession=await getSession();if(!currentSession){location.href=loginUrl();throw new Error('سجّل الدخول أولاً.')}return currentSession}
+function stars(v){const n=Math.max(0,Math.min(5,Math.round(Number(v)||0)));return '<span class="stars" aria-label="'+n+' من 5">'+'★'.repeat(n)+'☆'.repeat(5-n)+'</span>'}
+function chips(values){return (values||[]).map(x=>'<span class="pill">'+esc(x)+'</span>').join('')}
+function showError(m){$('status').hidden=false;$('status').textContent=m}
+function showNotice(id,msg){$(id).hidden=false;$(id).textContent=msg}
+async function directory(){
+  $('profile').hidden=true;$('directoryHero').hidden=false;$('directoryTools').hidden=false;
+  const rows=await idGet('aqx_persona_public_pages','select=id,slug,display_name,headline,professional_title,culinary_specialties,cuisines,review_count,average_rating&category_key=eq.chef&visibility=eq.public&order=display_name.asc');
+  const draw=()=>{const q=$('search').value.trim().toLocaleLowerCase('ar');const filtered=rows.filter(p=>(p.display_name+' '+(p.professional_title||'')+' '+(p.culinary_specialties||[]).join(' ')).toLocaleLowerCase('ar').includes(q));$('directory').innerHTML=filtered.map(p=>'<a class="card chef-card" href="chef.html?id='+encodeURIComponent(p.id)+'"><div class="avatar placeholder">🍳</div><div><h2>'+esc(p.display_name)+'</h2><div class="muted">'+esc(p.professional_title||p.headline||'طاهٍ في AQX')+'</div><div>'+chips((p.culinary_specialties||[]).slice(0,3))+'</div><small class="muted">'+(p.average_rating?stars(p.average_rating)+' '+esc(p.average_rating):'لا توجد تقييمات بعد')+'</small></div></a>').join('');$('status').hidden=filtered.length>0;if(!filtered.length)showError(rows.length?'لا توجد نتائج مطابقة.':'لا توجد شخصيات طاهٍ منشورة حالياً. أنشئ شخصية الطاهي من «شخصياتي» واجعل ظهورها عاماً لتظهر هنا.');};
+  $('search').addEventListener('input',draw);draw();
+}
+async function loadComments(){const d=await bridge('comments');const rows=d.comments||[];$('comments').innerHTML=rows.length?rows.map(c=>'<div id="comment-'+esc(c.id)+'" class="comment" style="'+(c.parent_comment_id?'margin-right:24px;border-right:3px solid #d9cdf8;padding-right:12px':'')+'"><div class="by">'+esc(c.author_display_name)+(c.author_is_persona_owner?'<span class="chef-tag">الطاهي</span>':'')+'</div><div>'+esc(c.body).replace(/\n/g,'<br>')+'</div><div class="rating-row"><small class="muted">'+new Date(c.created_at).toLocaleString('ar-EG')+'</small><button class="btn secondary" type="button" data-reply="'+esc(c.id)+'">رد</button></div></div>').join(''):'<div class="empty">لا توجد تعليقات منشورة حتى الآن.</div>';
+  document.querySelectorAll('[data-reply]').forEach(b=>b.addEventListener('click',()=>{$('parentCommentId').value=b.dataset.reply;$('commentLabel').textContent='الرد على التعليق';$('cancelReply').hidden=false;$('commentBody').focus();}));
+}
+async function loadMessages(){
+  if(!currentSession)return;
+  const owner=currentSession.user.aqx_id===currentPersona.aqx_id;
+  $('inbox').hidden=!owner&&!currentPersona.contact_enabled;
+  if(owner){$('inbox').hidden=false;$('messageFormWrap').hidden=true;}else{$('messageFormWrap').hidden=!currentPersona.contact_enabled;$('inbox').hidden=false;}
+  const q='select=id,contact_name,status,last_message_at,created_at&persona_id=eq.'+currentPersona.id+'&order=last_message_at.desc.nullslast';
+  const mine=await idGet('aqx_persona_conversation_contacts',q,currentSession);
+  const notices=await idGet('aqx_persona_notifications','select=id,notification_type,created_at,read_at,conversation_id,external_comment_id&persona_id=eq.'+currentPersona.id+'&order=created_at.desc&limit=20',currentSession);
+  $('notifications').hidden=!notices.length;
+  $('notifications').innerHTML=notices.map(n=>'<div class="rating-row"><span>'+(n.notification_type==='persona_message'?'رسالة جديدة':'تعليق جديد')+' • '+new Date(n.created_at).toLocaleString('ar-EG')+'</span><button class="btn secondary" type="button" data-notice="'+esc(n.id)+'" data-conversation="'+esc(n.conversation_id||'')+'" data-comment="'+esc(n.external_comment_id||'')+'">'+(n.read_at?'فتح':'عرض')+'</button></div>').join('');
+  document.querySelectorAll('[data-notice]').forEach(b=>b.addEventListener('click',async()=>{await fetch(ID_URL+'/rest/v1/aqx_persona_notifications?id=eq.'+b.dataset.notice,{method:'PATCH',headers:{apikey:ID_KEY,Authorization:'Bearer '+currentSession.accessToken,'Content-Type':'application/json'},body:JSON.stringify({read_at:new Date().toISOString()})});if(b.dataset.conversation)await openConversation(b.dataset.conversation);else if(b.dataset.comment){const el=document.getElementById('comment-'+b.dataset.comment);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});else $('comments').scrollIntoView({behavior:'smooth'});}}));
+  $('conversations').innerHTML=mine.length?mine.map(c=>'<div class="convo '+(currentConversation===c.id?'active':'')+'" data-convo="'+esc(c.id)+'"><b>محادثة</b><div class="muted">'+(c.last_message_at?new Date(c.last_message_at).toLocaleString('ar-EG'):'جديدة')+' • '+esc(c.status)+'</div></div>').join(''):'<div class="empty">لا توجد محادثات حتى الآن.</div>';
+  document.querySelectorAll('[data-convo]').forEach(el=>el.addEventListener('click',()=>openConversation(el.dataset.convo)));
+  if(currentConversation&&mine.some(c=>c.id===currentConversation))await openConversation(currentConversation);
+  else if(mine.length)await openConversation(mine[0].id);
+}
+async function openConversation(id){
+  currentConversation=id;
+  const rows=await idGet('aqx_persona_messages','select=id,conversation_id,sender_user_id,body,created_at,deleted_at&conversation_id=eq.'+id+'&order=created_at.asc',currentSession);
+  const owner=currentSession.user.aqx_id===currentPersona.aqx_id;
+  $('messages').innerHTML=rows.map(m=>'<div class="msg '+(m.sender_user_id===currentSession.user.user_id?'mine':'')+'">'+esc(m.deleted_at?'تم حذف الرسالة':m.body)+'<small>'+(m.sender_user_id===currentSession.user.user_id?'أنت':(owner?'القارئ':'الطاهي'))+' • '+new Date(m.created_at).toLocaleString('ar-EG')+'</small></div>').join('')||'<div class="empty">ابدأ المحادثة برسالة جديدة.</div>';
+  $('replyMessageForm').hidden=false;
+  document.querySelectorAll('[data-convo]').forEach(el=>el.classList.toggle('active',el.dataset.convo===id));
+}
+async function loadAnalytics(){
+  const d=await bridge('analytics',{period:$('analyticsPeriod').value},currentSession);const a=d.analytics||{};
+  $('analyticsVisits').textContent=a.total_visits??0;$('analyticsUnique').textContent=a.unique_observed_visitors??0;
+  $('analyticsMeta').textContent='الفترة: '+($('analyticsPeriod').selectedOptions[0]?.textContent||'')+' • التوقيت: '+(a.timezone||'Africa/Cairo');
+}
+async function profile(identifier,isSlug){
+  $('directoryHero').hidden=true;$('directoryTools').hidden=true;$('directory').hidden=true;
+  const filter=isSlug?'slug=eq.'+encodeURIComponent(identifier):'id=eq.'+encodeURIComponent(identifier);
+  const rows=await idGet('aqx_persona_public_pages','select=*&category_key=eq.chef&'+filter+'&limit=1');
+  if(!rows.length)throw new Error('صفحة شخصية الطاهي غير موجودة أو لم تُنشر للعامة.');
+  const p=rows[0];currentPersona=p;$('profile').hidden=false;$('status').hidden=true;document.title=p.display_name+' | طاهٍ AQX';
+  document.querySelector('meta[name="description"]').content=p.bio||'الصفحة العامة لشخصية الطاهي '+p.display_name+' على AQX.';
+  const m=await media(p.id);$('avatar').src=safeUrl(m.avatar_url)||'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="100%" height="100%" rx="24" fill="#f0ebfb"/><text x="50%" y="58%" text-anchor="middle" font-size="52" fill="#7650df">🍳</text></svg>');
+  if(safeUrl(m.cover_url))$('cover').style.backgroundImage='url("'+safeUrl(m.cover_url).replace(/"/g,'%22')+'")';
+  $('name').textContent=p.display_name;$('headline').textContent=p.headline||p.professional_title||'';$('verify').textContent=p.is_verified?'✓ شخصية الطاهي موثّقة من AQX':'';
+  $('role').textContent=[p.years_experience?'خبرة '+p.years_experience+' سنة':'',p.city||'',p.country_code||''].filter(Boolean).join(' • ');
+  $('bio').textContent=p.bio||'لم يضف الطاهي نبذة تعريفية بعد.';
+  const web=safeUrl(p.website);$('website').hidden=!web;if(web)$('website').href=web;
+  $('specialties').innerHTML=chips([...(p.culinary_specialties||[]),...(p.cuisines||[]),...(p.dietary_expertise||[]),...(p.languages||[])]);$('workModes').innerHTML=chips([...(p.work_modes||[]),...(p.booking_types||[])]);
+  const socials=Object.entries(p.social_links||{}).map(([k,v])=>{const u=safeUrl(v);return u?'<a class="pill" target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">'+esc(k)+'</a>':''}).join('');
+  $('socialLinks').innerHTML=socials;$('publicEmail').innerHTML=p.public_contact_email?'<a href="mailto:'+esc(p.public_contact_email)+'">البريد المهني</a>':'';
+  $('ratingValue').textContent=p.average_rating??'—';$('ratingCount').textContent=p.review_count||0;
+  const [works,portfolio,skills,links,reviews]=await Promise.all([
+    bridge('works'),idGet('aqx_persona_portfolio','select=id,title,description,item_type,media_url,project_url,created_at&persona_id=eq.'+p.id+'&visibility=eq.public&order=sort_order.asc'),
+    idGet('aqx_persona_skills','select=skill_name,proficiency,years_experience,sort_order&persona_id=eq.'+p.id+'&order=sort_order.asc'),
+    idGet('aqx_persona_links','select=label,url,link_type,sort_order&persona_id=eq.'+p.id+'&order=sort_order.asc'),
+    bridge('reviews')
+  ]);
+  $('worksCount').textContent=(works.works||[]).length;$('portfolioCount').textContent=portfolio.length;
+  $('works').innerHTML=(works.works||[]).length?(works.works||[]).map(w=>{const u=safeUrl(w.canonical_url);return '<article class="card work">'+(safeUrl(w.image_url)?'<img src="'+esc(safeUrl(w.image_url))+'" alt="">':'')+'<h3>'+esc(w.title||'عمل منشور')+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(u?'<a target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">فتح الرابط ←</a>':'')+'</article>'}).join(''):'<div class="empty">لا توجد روابط منشورة مرتبطة بهذه الشخصية حتى الآن.</div>';
+  $('portfolio').innerHTML=portfolio.length?portfolio.map(w=>{const u=safeUrl(w.project_url),img=safeUrl(w.media_url);return '<article class="card work">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'<h3>'+esc(w.title)+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(u?'<a target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">عرض العمل ←</a>':'')+'</article>'}).join(''):'<div class="empty">لم يضف الطاهي أعمالاً إلى معرضه بعد.</div>';
+  $('skills').innerHTML=skills.length?skills.map(s=>'<span class="pill">'+esc(s.skill_name)+' • '+esc(s.proficiency)+'</span>').join(''):'<span class="muted">لا توجد مهارات مضافة بعد.</span>';
+  $('socialLinks').innerHTML+=links.map(l=>{const u=safeUrl(l.url);return u?'<a class="pill" target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">'+esc(l.label)+'</a>':''}).join('');
+  $('ratingBreakdown').innerHTML=p.review_count?stars(p.average_rating)+' متوسط '+esc(p.average_rating)+' من 5':'لا توجد تقييمات منشورة بعد.';
+  const reviewRows=reviews.reviews||[];$('ratings').innerHTML=reviewRows.length?reviewRows.map(r=>'<div class="comment"><div class="rating-row">'+stars(r.rating)+'<small class="muted">'+new Date(r.created_at).toLocaleDateString('ar-EG')+'</small></div><p class="muted">'+esc(r.review_text||'تقييم بدون نص')+'</p></div>').join(''):'<div class="empty">كن أول من يقيّم هذه الشخصية بعد التعامل معها.</div>';
+  setLoginLinks();
+  currentSession=await getSession();
+  const owner=!!currentSession&&currentSession.user.aqx_id===p.aqx_id;
+  $('ratingFormWrap').hidden=!currentSession||owner;$('ratingLogin').hidden=!!currentSession||owner;
+  $('commentFormWrap').hidden=!currentSession||!p.comments_enabled;$('commentLogin').hidden=!!currentSession||!p.comments_enabled;
+  $('contactSection').hidden=!p.contact_enabled&&!currentSession&&!owner;
+  $('messageLogin').hidden=!!currentSession||!p.contact_enabled;
+  $('messageFormWrap').hidden=!currentSession||owner||!p.contact_enabled;
+  $('inbox').hidden=!currentSession;
+  $('analyticsSection').hidden=!owner;
+  await loadComments();
+  if(currentSession)await loadMessages();
+  if(owner){await loadAnalytics().catch(e=>$('analyticsMeta').textContent=e.message);}
+  const canonical='https://alqurmanix.com/chef.html?id='+encodeURIComponent(p.id);let link=document.querySelector('link[rel="canonical"]');if(!link){link=document.createElement('link');link.rel='canonical';document.head.appendChild(link)}link.href=canonical;
+}
+$('ratingForm').addEventListener('submit',async e=>{e.preventDefault();try{const s=await requireSession();const existing=await idGet('aqx_persona_reviews','select=id&persona_id=eq.'+currentPersona.id+'&reviewer_user_id=eq.'+s.user.user_id+'&limit=1',s);const payload={rating:Number($('ratingScore').value),review_text:$('ratingText').value.trim()||null};if(existing.length){const r=await fetch(ID_URL+'/rest/v1/aqx_persona_reviews?id=eq.'+existing[0].id,{method:'PATCH',headers:{apikey:ID_KEY,Authorization:'Bearer '+s.accessToken,'Content-Type':'application/json',Prefer:'return=representation'},body:JSON.stringify(payload)});if(!r.ok)throw new Error('تعذر تحديث التقييم.');}else{await bridge('review',payload,s);}alert('تم إرسال التقييم للمراجعة.');location.reload();}catch(err){alert(err.message);}});
+$('commentForm').addEventListener('submit',async e=>{e.preventDefault();try{const s=await requireSession();await bridge('comment',{body:$('commentBody').value,parent_comment_id:$('parentCommentId').value||null},s);$('commentBody').value='';$('parentCommentId').value='';$('commentLabel').textContent='أضف تعليقاً';$('cancelReply').hidden=true;await loadComments();}catch(err){alert(err.message);}});
+$('cancelReply').addEventListener('click',()=>{$('parentCommentId').value='';$('commentLabel').textContent='أضف تعليقاً';$('cancelReply').hidden=true;});
+$('messageForm').addEventListener('submit',async e=>{e.preventDefault();try{const s=await requireSession();await bridge('message',{message:$('messageBody').value},s);$('messageBody').value='';await loadMessages();alert('تم إرسال الرسالة وفتح المحادثة في صندوق مراسلات الطاهي.');}catch(err){alert(err.message);}});
+$('replyMessageForm').addEventListener('submit',async e=>{e.preventDefault();try{const s=await requireSession();if(!currentConversation)throw new Error('اختر محادثة أولاً.');await bridge('reply_message',{conversation_id:currentConversation,message:$('replyMessageBody').value},s);$('replyMessageBody').value='';await openConversation(currentConversation);}catch(err){alert(err.message);}});
+$('analyticsPeriod').addEventListener('change',()=>loadAnalytics().catch(e=>$('analyticsMeta').textContent=e.message));
+(async()=>{try{const id=params.get('id'),slug=params.get('slug');if(id||slug)await profile(id||slug,!!slug);else await directory();}catch(e){showError(e.message||'حدث خطأ أثناء تحميل الصفحة.');}})();
+</script>
+</body></html>
