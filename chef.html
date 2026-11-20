@@ -234,9 +234,9 @@ async function profile(identifier,isSlug){
     const ingredients=Array.isArray(it.ingredients)?it.ingredients.map(x=>typeof x==='string'?x:(x?.name||'')).filter(Boolean).join('، '):'';
     const allergens=Array.isArray(it.allergens)?it.allergens.join('، '):'';
     const price=it.price_amount!==null&&it.price_amount!==undefined?'<span class="pill">'+Number(it.price_amount).toFixed(2)+' '+esc(it.currency_code||'EGP')+'</span>':'';
-    return '<article class="card work">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'<h3>'+esc(it.title)+'</h3><p class="muted">'+esc(it.description||'')+'</p><div class="chips">'+price+'<span class="pill">'+esc(it.availability_status||'')+'</span></div>'+(ingredients?'<p><b>المكونات:</b> '+esc(ingredients)+'</p>':'')+(allergens?'<p><b>مسببات الحساسية:</b> '+esc(allergens)+'</p>':'')+(it.is_orderable&&p.contact_enabled?'<a class="btn" href="#contactSection">استفسر عن الطلب</a>':'')+'</article>';
+    const itemReviews=catalogReviews.filter(r=>r.catalog_item_id===it.id);const avg=itemReviews.length?(itemReviews.reduce((n,r)=>n+Number(r.rating),0)/itemReviews.length).toFixed(1):'—';return '<article class="card work">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'<h3>'+esc(it.title)+'</h3><p class="muted">'+esc(it.description||'')+'</p><div class="chips">'+price+'<span class="pill">'+esc(it.availability_status||'')+'</span><span class="pill">'+esc(avg)+' / 5 • '+itemReviews.length+' تقييم</span></div>'+(ingredients?'<p><b>المكونات:</b> '+esc(ingredients)+'</p>':'')+(allergens?'<p><b>مسببات الحساسية:</b> '+esc(allergens)+'</p>':'')+(it.is_orderable&&p.contact_enabled?'<a class="btn" href="#contactSection">استفسر عن الطلب</a>':'')+'<form class="catalogReviewForm" data-item-id="'+esc(it.id)+'" style="margin-top:12px"><label>قيّم هذا الطبق أو الوصفة<select class="field" name="rating"><option value="5">5 — ممتاز</option><option value="4">4 — جيد جداً</option><option value="3">3 — جيد</option><option value="2">2 — مقبول</option><option value="1">1 — ضعيف</option></select></label><textarea class="field" name="review_text" rows="2" maxlength="2000" placeholder="ملاحظاتك (اختياري)"></textarea><button class="btn" type="submit">إرسال تقييم الطبق</button></form></article>';
   }).join(''):'';
-  const businesses=businessData.affiliations||[];
+  const catalogIds=catalog.map(it=>it.id);const catalogReviews=catalogIds.length?await idGet('aqx_chef_catalog_reviews','select=id,catalog_item_id,rating,criteria_scores,review_text,created_at&catalog_item_id=in.('+catalogIds.join(',')+')&status=eq.published&order=created_at.desc&limit=500'):[];\n  const businesses=businessData.affiliations||[];
   $('businessSection').hidden=!businesses.length;
   $('chefBusinesses').innerHTML=businesses.length?businesses.map(b=>{
     const url=safeUrl(b.external_business_url);
@@ -244,6 +244,25 @@ async function profile(identifier,isSlug){
     const rel={owner:'مالك',co_owner:'شريك مالك',employee:'موظف',executive_chef:'شيف تنفيذي',consultant:'استشاري',freelancer:'مستقل',partner:'شريك',former_employee:'عمل سابق'};
     return '<article class="card work"><h3>'+esc(b.business_name)+'</h3><p>'+esc(kinds[b.business_kind]||b.business_kind)+' • '+esc(rel[b.relationship]||b.relationship)+'</p><p class="muted">'+esc([b.city,b.country_code].filter(Boolean).join('، '))+'</p><span class="pill">تم التحقق من الارتباط</span>'+(url?'<p><a target="_blank" rel="noopener noreferrer" href="'+esc(url)+'">صفحة النشاط</a></p>':'')+'</article>';
   }).join(''):'';
+
+document.querySelectorAll('.catalogReviewForm').forEach(form=>form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const s=await requireSession();
+    const itemId=form.dataset.itemId;
+    const rating=Number(form.elements.rating.value);
+    const reviewText=form.elements.review_text.value.trim();
+    const response=await fetch(ID_URL+'/rest/v1/aqx_chef_catalog_reviews',{
+      method:'POST',
+      headers:{apikey:ID_KEY,Authorization:'Bearer '+s.accessToken,'Content-Type':'application/json',Prefer:'return=representation'},
+      body:JSON.stringify({catalog_item_id:itemId,reviewer_user_id:s.user.user_id,rating,review_text:reviewText||null,status:'pending'})
+    });
+    const data=await response.json().catch(()=>null);
+    if(!response.ok)throw new Error(data?.message||'تعذر إرسال تقييم الطبق. ربما سبق لك تقييمه.');
+    form.reset();alert('وصل تقييمك وهو قيد المراجعة قبل النشر.');
+  }catch(err){alert(err.message);}
+}));
+
   $('worksCount').textContent=(works.works||[]).length;$('portfolioCount').textContent=portfolio.length;
   $('works').innerHTML=(works.works||[]).length?(works.works||[]).map(w=>{const u=safeUrl(w.canonical_url);return '<article class="card work">'+(safeUrl(w.image_url)?'<img src="'+esc(safeUrl(w.image_url))+'" alt="">':'')+'<h3>'+esc(w.title||'عمل منشور')+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(u?'<a target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">فتح الرابط ←</a>':'')+'</article>'}).join(''):'<div class="empty">لا توجد روابط منشورة مرتبطة بهذه الشخصية حتى الآن.</div>';
   $('portfolio').innerHTML=portfolio.length?portfolio.map(w=>{const u=safeUrl(w.project_url),img=safeUrl(w.media_url);return '<article class="card work">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'<h3>'+esc(w.title)+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(u?'<a target="_blank" rel="noopener noreferrer" href="'+esc(u)+'">عرض العمل ←</a>':'')+'</article>'}).join(''):'<div class="empty">لم يضف الطاهي أعمالاً إلى معرضه بعد.</div>';
