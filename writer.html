@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7a4df0">
+<meta name="description" content="الصفحة العامة لكتّاب AQX وأعمالهم وتقييماتهم وتعليقات القراء.">
+<meta name="robots" content="index,follow">
+<title>كتّاب AQX | القرماني إكس</title>
+<style>
+:root{--purple:#7650df;--purple2:#9a7af0;--sky:#54bde8;--ink:#251747;--muted:#706985;--line:#e8e1f6;--paper:#fff;--bg:#f7f5fc;--soft:#f0ebfb}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff 0,#f6f2ff 48%,#eef8ff 100%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;line-height:1.75}
+a{color:var(--purple);text-decoration:none}a:hover{text-decoration:underline}
+header{background:#ffffffdf;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{max-width:1080px;margin:auto;padding:13px 20px;display:flex;align-items:center;gap:12px}.brand{font-weight:900;color:var(--purple);font-size:1.25rem}.nav small{color:var(--muted);margin-inline-start:auto}
+main{max-width:1080px;margin:28px auto;padding:0 18px 60px}
+.hero{border:1px solid #e4dafb;border-radius:28px;padding:28px;background:linear-gradient(120deg,#fff,#f0eaff 60%,#e9f8ff);box-shadow:0 14px 40px #6845b510;margin-bottom:22px}
+.hero h1{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.3;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.search{flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;font:inherit;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 26px #36205b0a}
+.writer-card{display:flex;gap:14px;align-items:flex-start}.avatar{width:74px;height:74px;border-radius:20px;object-fit:cover;background:var(--soft);flex:none}.avatar.placeholder{display:grid;place-items:center;color:var(--purple);font-size:1.8rem;font-weight:800}
+.writer-card h2{font-size:1.1rem;margin:0}.muted{color:var(--muted)}.pill{display:inline-flex;padding:3px 10px;border-radius:30px;background:var(--soft);color:#6545bd;font-size:.78rem;margin:4px 3px 0 0}
+.cover{height:210px;border-radius:24px 24px 0 0;background:linear-gradient(120deg,#c8b7f6,#b9e7f8);background-position:center;background-size:cover}
+.profile-head{overflow:hidden;padding:0}.profile-info{padding:20px 24px 24px;display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}.profile-avatar{width:112px;height:112px;border-radius:26px;border:5px solid white;object-fit:cover;background:var(--soft);margin-top:-65px;box-shadow:0 8px 24px #24144718}.profile-title{flex:1;min-width:210px}.profile-title h1{margin:0;font-size:clamp(1.5rem,4vw,2.2rem)}.verified{color:#168c69;font-size:.86rem}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stat{background:#f8f6fd;border:1px solid var(--line);border-radius:14px;padding:8px 13px;min-width:95px}.stat b{display:block;font-size:1.1rem}.stat small{color:var(--muted)}
+.section{margin-top:22px}.section h2{font-size:1.25rem;margin:0 0 12px}.chips{display:flex;gap:7px;flex-wrap:wrap}.work h3{margin:0 0 6px;font-size:1rem}.work img{width:100%;height:150px;object-fit:cover;border-radius:14px;margin-bottom:10px;background:var(--soft)}
+.stars{color:#e5a51b;letter-spacing:2px;white-space:nowrap}.rating-row{display:flex;justify-content:space-between;gap:10px;align-items:center}.comment{border-bottom:1px solid var(--line);padding:13px 0}.comment:last-child{border:0}.comment .by{font-weight:750}.comment .writer-tag{font-size:.72rem;background:#e9f7ff;color:#14789c;border-radius:20px;padding:2px 8px;margin-inline-start:6px}
+.notice{padding:14px 16px;border-radius:16px;background:#f1edfb;color:#59448f;border:1px solid #e1d7f7}.empty{text-align:center;padding:35px 15px;color:var(--muted)}.btn{display:inline-block;background:var(--purple);color:white;padding:9px 16px;border-radius:12px;font-weight:700}.btn:hover{background:#6240c5;text-decoration:none}
+footer{text-align:center;color:var(--muted);padding:25px 15px;border-top:1px solid var(--line);font-size:.85rem}
+[hidden]{display:none!important}
+@media(max-width:620px){main{margin-top:18px}.hero{padding:22px}.profile-info{padding:16px}.cover{height:150px}.profile-avatar{width:92px;height:92px;margin-top:-52px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="https://alqurmanix.com/">AQX</a><span>كتّاب المنظومة</span><small>القرماني إكس</small></div></header>
+<main>
+<section class="hero" id="directoryHero"><h1>كتّاب AQX</h1><p>اكتشف الكتّاب، تعرّف على أعمالهم، واطّلع على تقييمات القراء ومشاركاتهم.</p></section>
+<div class="toolbar" id="directoryTools"><input id="search" class="search" type="search" placeholder="ابحث باسم الكاتب أو التخصص..." aria-label="ابحث عن كاتب"></div>
+<div id="directory" class="grid" aria-live="polite"></div>
+<section id="profile" hidden>
+  <div class="card profile-head">
+    <div class="cover" id="cover"></div>
+    <div class="profile-info">
+      <img id="avatar" class="profile-avatar" alt="الصورة الشخصية للكاتب">
+      <div class="profile-title"><h1 id="name"></h1><div id="verify" class="verified"></div><div id="role" class="muted"></div><p id="shortBio" class="muted"></p></div>
+      <a id="website" class="btn" target="_blank" rel="noopener noreferrer" hidden>الموقع الشخصي</a>
+    </div>
+    <div class="stats" style="padding:0 24px 22px">
+      <div class="stat"><b id="worksCount">0</b><small>عمل منشور</small></div>
+      <div class="stat"><b id="ratingValue">—</b><small>متوسط التقييم</small></div>
+      <div class="stat"><b id="ratingCount">0</b><small>تقييم</small></div>
+    </div>
+  </div>
+  <section class="section card" id="bioSection"><h2>نبذة عن الكاتب</h2><p id="bio" class="muted"></p><div id="specialties" class="chips"></div></section>
+  <section class="section"><h2>الأعمال والمنشورات</h2><div id="works" class="grid"></div></section>
+  <section class="section card"><h2>تقييمات القراء</h2><div id="ratingBreakdown" class="muted"></div><div id="ratings"></div></section>
+  <section class="section card"><h2>تعليقات القراء وردود الكاتب</h2><div id="comments"></div><div class="notice" style="margin-top:12px">إضافة تعليق أو تقييم أو مراسلة الكاتب تتطلب تسجيل الدخول بحساب AQX. تُدار هذه التفاعلات من خلال أنظمة AQX المركزية.</div></section>
+  <p style="margin-top:18px"><a href="writer.html" class="btn">عرض جميع الكتّاب</a></p>
+</section>
+<div id="status" class="empty" role="status">جارٍ تحميل البيانات...</div>
+</main>
+<footer>© AQX — القرماني إكس. جميع الحقوق محفوظة.</footer>
+<script>
+const API='https://vuszqzgldbsscuxdfhdz.supabase.co';
+const KEY='sb_publishable_cI7C0sL9M4OLvsa-JGAAFQ_KfqlkI7X';
+const headers={apikey:KEY,Accept:'application/json'};
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=v=>{try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
+async function get(table,params=''){const r=await fetch(API+'/rest/v1/'+table+'?'+params,{headers});if(!r.ok)throw new Error('تعذر تحميل البيانات ('+r.status+')');return r.json()}
+function stars(v){const n=Math.max(0,Math.min(5,Math.round(Number(v)||0)));return '<span class="stars" aria-label="'+n+' من 5">'+'★'.repeat(n)+'☆'.repeat(5-n)+'</span>'}
+function chips(values){return (values||[]).map(x=>'<span class="pill">'+esc(x)+'</span>').join('')}
+function showError(message){$('status').hidden=false;$('status').textContent=message}
+function renderDirectory(rows){
+  $('directory').innerHTML=rows.map(p=>'<a class="card writer-card" href="writer.html?slug='+encodeURIComponent(p.slug)+'">'+
+    (p.avatar_url?'<img class="avatar" src="'+esc(safeUrl(p.avatar_url))+'" alt="">':'<div class="avatar placeholder">✍</div>')+
+    '<div><h2>'+esc(p.display_name)+'</h2><div class="muted">'+esc(p.professional_title||p.short_bio||'كاتب في AQX')+'</div>'+
+    '<div>'+chips((p.specialties||[]).slice(0,3))+'</div>'+
+    '<small class="muted">'+(p.average_rating?stars(p.average_rating)+' '+esc(p.average_rating):'لا توجد تقييمات بعد')+'</small></div></a>').join('');
+}
+async function directory(){
+  $('profile').hidden=true;$('directoryHero').hidden=false;$('directoryTools').hidden=false;
+  const rows=await get('aqx_writer_public_pages','select=id,display_name,slug,avatar_url,short_bio,professional_title,specialties,average_rating&order=display_name.asc');
+  const draw=()=>{const q=$('search').value.trim().toLocaleLowerCase('ar');const filtered=rows.filter(p=>(p.display_name+' '+(p.professional_title||'')+' '+(p.specialties||[]).join(' ')).toLocaleLowerCase('ar').includes(q));renderDirectory(filtered);$('status').hidden=filtered.length>0;if(!filtered.length)showError(rows.length?'لا توجد نتائج مطابقة.':'لا توجد صفحات كتّاب منشورة حالياً. ستظهر الصفحات هنا بعد استكمال بيانات الكاتب واعتماد النشر.');};
+  $('search').addEventListener('input',draw);draw();
+}
+async function profile(slug){
+  $('directoryHero').hidden=true;$('directoryTools').hidden=true;$('directory').hidden=true;
+  const rows=await get('aqx_writer_public_pages','select=*&slug=eq.'+encodeURIComponent(slug)+'&limit=1');
+  if(!rows.length)throw new Error('صفحة الكاتب غير موجودة أو لم تُنشر بعد.');
+  const p=rows[0];$('profile').hidden=false;$('status').hidden=true;
+  document.title=p.display_name+' | كتّاب AQX';
+  document.querySelector('meta[name="description"]').content=p.short_bio||'الصفحة العامة للكاتب '+p.display_name+' على AQX.';
+  $('name').textContent=p.display_name;$('role').textContent=[p.pen_name?'الاسم الأدبي: '+p.pen_name:'',p.professional_title||'',p.writer_kind==='member'?'عضو AQX':'كاتب خارجي'].filter(Boolean).join(' • ');
+  $('verify').textContent=p.verification_status==='verified'?'✓ كاتب موثّق من AQX':'';
+  $('shortBio').textContent=p.short_bio||'';$('bio').textContent=p.biography||p.short_bio||'لم يضف الكاتب نبذة تعريفية بعد.';
+  $('avatar').src=safeUrl(p.avatar_url)||'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="100%" height="100%" rx="24" fill="#f0ebfb"/><text x="50%" y="58%" text-anchor="middle" font-size="52" fill="#7650df">✍</text></svg>');
+  $('cover').style.backgroundImage=p.cover_url?'url("'+safeUrl(p.cover_url).replace(/"/g,'%22')+'")':'';
+  $('specialties').innerHTML=chips([...(p.specialties||[]),...(p.writing_categories||[]),...(p.topics||[])]);
+  $('worksCount').textContent=p.published_work_count||0;$('ratingValue').textContent=p.average_rating??'—';$('ratingCount').textContent=p.rating_count||0;
+  const web=safeUrl(p.website_url);$('website').hidden=!web;if(web)$('website').href=web;
+  const [works,ratings,comments]=await Promise.all([
+    get('aqx_writer_public_works','select=id,title,description,image_url,canonical_url,created_at&author_profile_id=eq.'+p.id+'&order=created_at.desc&limit=50'),
+    get('aqx_writer_public_ratings','select=overall_rating,content_quality,accuracy,writing_style,reliability,review_text,created_at&writer_profile_id=eq.'+p.id+'&order=created_at.desc&limit=30'),
+    get('aqx_writer_page_comments','select=id,parent_comment_id,body,created_at,author_display_name,author_avatar_url,author_is_writer&writer_profile_id=eq.'+p.id+'&order=created_at.asc&limit=100')
+  ]);
+  $('works').innerHTML=works.length?works.map(w=>{const url=safeUrl(w.canonical_url);return '<article class="card work">'+(safeUrl(w.image_url)?'<img src="'+esc(safeUrl(w.image_url))+'" alt="">':'')+'<h3>'+esc(w.title||'منشور للكاتب')+'</h3><p class="muted">'+esc(w.description||'')+'</p>'+(url?'<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">فتح العمل ←</a>':'')+'</article>'}).join(''):'<div class="empty">لا توجد أعمال منشورة مرتبطة بهذه الصفحة حتى الآن.</div>';
+  $('ratingBreakdown').innerHTML=p.rating_count?stars(p.average_rating)+' متوسط '+esc(p.average_rating)+' من 5':'لم يحصل الكاتب على تقييمات منشورة بعد.';
+  $('ratings').innerHTML=ratings.length?ratings.map(r=>'<div class="comment"><div class="rating-row">'+stars(r.overall_rating)+'<small class="muted">'+new Date(r.created_at).toLocaleDateString('ar-EG')+'</small></div><p class="muted">'+esc(r.review_text||'تقييم بدون نص')+'</p></div>').join(''):'';
+  $('comments').innerHTML=comments.length?comments.map(c=>'<div class="comment" style="'+(c.parent_comment_id?'margin-right:26px;border-right:3px solid #d9cdf8;padding-right:12px':'')+'"><div class="by">'+esc(c.author_display_name)+(c.author_is_writer?'<span class="writer-tag">الكاتب</span>':'')+'</div><div>'+esc(c.body)+'</div><small class="muted">'+new Date(c.created_at).toLocaleString('ar-EG')+'</small></div>').join(''):'<div class="empty">لا توجد تعليقات منشورة حتى الآن.</div>';
+  const canonical='https://alqurmanix.com/writer.html?slug='+encodeURIComponent(p.slug);let link=document.querySelector('link[rel="canonical"]');if(!link){link=document.createElement('link');link.rel='canonical';document.head.appendChild(link)}link.href=canonical;
+}
+(async()=>{try{const slug=new URLSearchParams(location.search).get('slug');if(slug)await profile(slug);else await directory()}catch(e){showError(e.message||'حدث خطأ أثناء تحميل الصفحة.')}})();
+</script>
+</body>
+</html>
