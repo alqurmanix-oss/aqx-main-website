@@ -104,7 +104,7 @@ async function getSession(){
   if(!me||!me.ok)return null;const data=await me.json().catch(()=>null);if(data?.success!==true||!data?.profile?.user_id)return null;
   return {accessToken,sessionToken:localToken,user:data.profile};
 }
-async function requireSession(){if(!currentSession){location.href=loginUrl();throw new Error('سجّل الدخول أولاً.')}return currentSession}
+async function requireSession(){currentSession=await getSession();if(!currentSession){location.href=loginUrl();throw new Error('سجّل الدخول أولاً.')}return currentSession}
 function stars(v){const n=Math.max(0,Math.min(5,Math.round(Number(v)||0)));return '<span class="stars" aria-label="'+n+' من 5">'+'★'.repeat(n)+'☆'.repeat(5-n)+'</span>'}
 function chips(values){return (values||[]).map(x=>'<span class="pill">'+esc(x)+'</span>').join('')}
 function showError(m){$('status').hidden=false;$('status').textContent=m}
@@ -185,7 +185,7 @@ async function profile(identifier,isSlug){
   $('inbox').hidden=!currentSession;
   $('analyticsSection').hidden=!owner;
   await loadComments();
-  if(currentSession&&p.contact_enabled)await loadMessages();
+  if(currentSession&&(p.contact_enabled||owner))await loadMessages();
   if(owner){await loadAnalytics().catch(e=>$('analyticsMeta').textContent=e.message);}
   const canonical='https://alqurmanix.com/writer.html?id='+encodeURIComponent(p.id);let link=document.querySelector('link[rel="canonical"]');if(!link){link=document.createElement('link');link.rel='canonical';document.head.appendChild(link)}link.href=canonical;
 }
