@@ -111,7 +111,7 @@ function showError(m){$('status').hidden=false;$('status').textContent=m}
 function showNotice(id,msg){$(id).hidden=false;$(id).textContent=msg}
 async function directory(){
   $('profile').hidden=true;$('directoryHero').hidden=false;$('directoryTools').hidden=false;
-  const rows=await idGet('aqx_writer_public_pages','select=id,slug,display_name,pen_name,headline,professional_title,writing_specialties,review_count,average_rating&order=display_name.asc');
+  const rows=await idGet('aqx_writer_public_pages','select=id,slug,display_name,pen_name,headline,professional_title,writing_specialties,review_count,average_rating&visibility=eq.public&order=display_name.asc');
   const draw=()=>{const q=$('search').value.trim().toLocaleLowerCase('ar');const filtered=rows.filter(p=>(p.display_name+' '+(p.professional_title||'')+' '+(p.writing_specialties||[]).join(' ')).toLocaleLowerCase('ar').includes(q));$('directory').innerHTML=filtered.map(p=>'<a class="card writer-card" href="writer.html?id='+encodeURIComponent(p.id)+'"><div class="avatar placeholder">✍</div><div><h2>'+esc(p.display_name)+'</h2><div class="muted">'+esc(p.professional_title||p.headline||'كاتب في AQX')+'</div><div>'+chips((p.writing_specialties||[]).slice(0,3))+'</div><small class="muted">'+(p.average_rating?stars(p.average_rating)+' '+esc(p.average_rating):'لا توجد تقييمات بعد')+'</small></div></a>').join('');$('status').hidden=filtered.length>0;if(!filtered.length)showError(rows.length?'لا توجد نتائج مطابقة.':'لا توجد شخصيات كاتب منشورة حالياً. أنشئ شخصية الكاتب من «شخصياتي» واجعل ظهورها عاماً لتظهر هنا.');};
   $('search').addEventListener('input',draw);draw();
 }
