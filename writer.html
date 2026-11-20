@@ -43,7 +43,7 @@ footer{text-align:center;color:var(--muted);padding:25px 15px;border-top:1px sol
     <div class="profile-info">
       <img id="avatar" class="profile-avatar" alt="الصورة الشخصية للكاتب">
       <div class="profile-title"><h1 id="name"></h1><div id="verify" class="verified"></div><div id="role" class="muted"></div><p id="shortBio" class="muted"></p></div>
-      <a id="website" class="btn" target="_blank" rel="noopener noreferrer" hidden>الموقع الشخصي</a>
+      <a id="website" class="btn" target="_blank" rel="noopener noreferrer" hidden>الموقع الشخصي</a><div id="contactInfo" class="muted" style="width:100%"></div><div id="socialLinks" class="chips" style="width:100%"></div>
     </div>
     <div class="stats" style="padding:0 24px 22px">
       <div class="stat"><b id="worksCount">0</b><small>عمل منشور</small></div>
@@ -99,6 +99,9 @@ async function profile(slug){
   $('specialties').innerHTML=chips([...(p.specialties||[]),...(p.writing_categories||[]),...(p.topics||[])]);
   $('worksCount').textContent=p.published_work_count||0;$('ratingValue').textContent=p.average_rating??'—';$('ratingCount').textContent=p.rating_count||0;
   const web=safeUrl(p.website_url);$('website').hidden=!web;if(web)$('website').href=web;
+  $('contactInfo').textContent=p.contact_enabled?'المراسلة متاحة لأعضاء AQX المسجلين.':'المراسلات غير متاحة حالياً.';
+  const socials=Object.entries(p.social_links||{}).map(([label,value])=>{const url=safeUrl(value);return url?'<a class="pill" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+'</a>':''}).join('');
+  $('socialLinks').innerHTML=socials+(p.public_email?'<a class="pill" href="mailto:'+esc(p.public_email)+'">البريد المهني</a>':'');
   const [works,ratings,comments]=await Promise.all([
     get('aqx_writer_public_works','select=id,title,description,image_url,canonical_url,created_at&author_profile_id=eq.'+p.id+'&order=created_at.desc&limit=50'),
     get('aqx_writer_public_ratings','select=overall_rating,content_quality,accuracy,writing_style,reliability,review_text,created_at&writer_profile_id=eq.'+p.id+'&order=created_at.desc&limit=30'),
