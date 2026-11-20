@@ -123,9 +123,8 @@ async function loadMessages(){
   const owner=currentSession.user.aqx_id===currentPersona.aqx_id;
   $('inbox').hidden=!owner&&!currentPersona.contact_enabled;
   if(owner){$('inbox').hidden=false;$('messageFormWrap').hidden=true;}else{$('messageFormWrap').hidden=!currentPersona.contact_enabled;$('inbox').hidden=false;}
-  const q='select=id,participant_user_id,status,last_message_at,created_at&persona_id=eq.'+currentPersona.id+'&order=last_message_at.desc.nullslast';
-  const rows=await idGet('aqx_persona_conversations',q,currentSession);
-  const mine=rows.filter(c=>owner||c.participant_user_id===currentSession.user.user_id);
+  const q='select=id,contact_name,status,last_message_at,created_at&persona_id=eq.'+currentPersona.id+'&order=last_message_at.desc.nullslast';
+  const mine=await idGet('aqx_persona_conversation_contacts',q,currentSession);
   const notices=await idGet('aqx_persona_notifications','select=id,notification_type,created_at,read_at,conversation_id,external_comment_id&persona_id=eq.'+currentPersona.id+'&order=created_at.desc&limit=20',currentSession);
   $('notifications').hidden=!notices.length;
   $('notifications').innerHTML=notices.map(n=>'<div class="rating-row"><span>'+(n.notification_type==='persona_message'?'رسالة جديدة':'تعليق جديد')+' • '+new Date(n.created_at).toLocaleString('ar-EG')+'</span><button class="btn secondary" type="button" data-notice="'+esc(n.id)+'" data-conversation="'+esc(n.conversation_id||'')+'" data-comment="'+esc(n.external_comment_id||'')+'">'+(n.read_at?'فتح':'عرض')+'</button></div>').join('');
