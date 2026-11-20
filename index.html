@@ -22,10 +22,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23b9a3f5'/><stop offset='.5' stop-color='%237a4df0'/><stop offset='1' stop-color='%234fc3f7'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><path d='M32 8 54 32 32 56 10 32Z' fill='none' stroke='white' stroke-width='3'/><text x='32' y='39' font-size='17' font-weight='800' text-anchor='middle' fill='white' font-family='Arial'>AQX</text></svg>">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest">
-<!-- ===== الحماية ===== -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<!-- ===== الحماية (frame-src لأجل الخريطة الحية) ===== -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"القرماني إكس AQX","alternateName":"ALQURMANI X","url":"https://www.example.com/","address":{"@type":"PostalAddress","addressLocality":"Aswan","addressCountry":"EG"}},{"@type":"WebSite","name":"ALQURMANI X AQX","url":"https://www.example.com/","inLanguage":["ar","en"],"potentialAction":{"@type":"SearchAction","target":"https://www.example.com/#search","query-input":"required name=q"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"القرماني إكس AQX","alternateName":"ALQURMANI X","url":"https://www.example.com/","telephone":"+201027834695","address":{"@type":"PostalAddress","addressLocality":"Aswan","addressCountry":"EG"}},{"@type":"WebSite","name":"ALQURMANI X AQX","url":"https://www.example.com/","inLanguage":["ar","en"],"potentialAction":{"@type":"SearchAction","target":"https://www.example.com/#search","query-input":"required name=q"}}]}</script>
 <style>
 :root{--v:#b9a3f5;--s:#4fc3f7;--p:#7a4df0;--ink:#241447;--ht:0px;--th:56px;--bh:0px}
 *{box-sizing:border-box}
@@ -59,7 +59,6 @@ header a.b{padding:6px 12px;border-radius:20px;background:linear-gradient(135deg
 @keyframes mq{to{transform:translateX(var(--d))}}
 .bar:hover .tr{animation-play-state:paused}
 .up{color:#4be08b}.dn{color:#ff6b7a}
-.py{padding:5px 14px;border-radius:12px;font-weight:800;font-size:.8rem;color:#fff;box-shadow:0 0 10px #0006,inset 0 0 8px #fff3}
 #st footer{text-align:center;font-size:.72rem;opacity:.75;padding:6px;border-top:1px solid #b9a3f533}
 /* التبويبات */
 .tab{position:fixed;left:0;right:0;top:var(--th);bottom:var(--bh);overflow:auto;display:none;z-index:1;padding:22px 5vw 60px;scroll-behavior:smooth}
@@ -166,7 +165,7 @@ h2.t{font-size:clamp(1.6rem,4vw,2.6rem);margin:0 0 6px;text-shadow:0 0 24px #7a4
 .hf{margin-top:30px;padding:50px 6vw 0;background:linear-gradient(#ffffff00,#e9deff 45%,#d4c4ff)}
 .fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}.hf h3{margin:0 0 10px}.hf ul{padding:0;margin:0}.hf li{list-style:none;margin:6px 0}
 .soc{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.soc a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem}
-.wa{display:inline-block;margin-top:8px;background:#25d366;color:#fff;padding:10px 18px;border-radius:30px;font-weight:700}
+.soc a svg{width:22px;height:22px}
 .fb{margin:34px -6vw 0;padding:16px 6vw;background:#5b2fc0;color:#fff;font-size:.85rem;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 @media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin:auto}}
 /* سهم الصعود */
@@ -195,7 +194,6 @@ body.hm #st{background:rgba(255,255,255,.9);color:var(--ink);box-shadow:0 -8px 3
 body.hm .bar,body.hm #st footer{border-top:1px solid #e3d8ff}
 body.hm #st footer{opacity:1;color:#5a4a8a}
 body.hm .up{color:#0a8a4a}body.hm .dn{color:#c62828}
-/* الخلفية والإضاءة التفاعلية */
 #p-home{background:linear-gradient(180deg,#fff,#f4eeff 30%,#e9f7ff 62%,#fff4fa)}
 #p-home .aur{position:fixed;z-index:0}
 #p-home::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(420px at var(--mx,50%) var(--my,30%),#ffffffb0,transparent 70%)}
@@ -226,6 +224,47 @@ body.hm .up{color:#0a8a4a}body.hm .dn{color:#c62828}
 .hsg b{font-size:2.6rem;background:linear-gradient(135deg,#d4a94f,#7a4df0);-webkit-background-clip:text;background-clip:text;color:transparent}.hsg h4{margin:4px 0}
 #p-home .cta{border:2px solid transparent;background:linear-gradient(160deg,#f8f4ff,#e4f5ff) padding-box,linear-gradient(135deg,#d4a94f,#b9a3f5,#4fc3f7) border-box}
 #p-home .fb{background:linear-gradient(90deg,#7a4df0,#4fc3f7)}
+</style>
+<style id="home-v3">
+/* ===== الرئيسية v3: شريط الدفع بالشعارات + معبر فضائي + واتساب + الخريطة ===== */
+#py{gap:14px;padding:7px 0}
+.pl{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;overflow:hidden;flex:none;box-shadow:0 4px 12px #0003}
+.pl svg,.pl img{width:100%;height:100%;display:block}
+.pl img{display:none;position:absolute;inset:0;object-fit:contain;background:#fff}
+.pl.ok img{display:block}.pl.ok svg{display:none}
+.pay2{display:inline-flex;align-items:center;gap:10px;padding:5px;padding-inline-end:16px;border-radius:16px;background:#fff;border:1px solid #e3d8ff;box-shadow:0 6px 18px #7a4df01f;font-weight:700;font-size:.85rem;color:var(--ink);transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer}
+.pay2:hover,.pay2:focus-visible{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 28px #7a4df055;border-color:#b9a3f5;outline:0}
+/* المعبر الفضائي */
+#wp{position:fixed;inset:0;z-index:300;perspective:900px;background:#070320;animation:wpi .4s forwards}
+@keyframes wpi{from{opacity:0}to{opacity:1}}
+#wp canvas{position:absolute;inset:0;width:100%;height:100%}
+#wp .pl.fly{position:fixed;margin:0;will-change:transform;box-shadow:0 0 50px #b9a3f5,0 0 100px #4fc3f7}
+#wp .wl{position:absolute;bottom:12%;width:100%;text-align:center;color:#fff;font-size:clamp(1.1rem,4vw,2rem);font-weight:700;text-shadow:0 0 20px #b9a3f5,0 0 40px #4fc3f7;padding:0 12px}
+/* واتساب الفخم */
+.wi{display:grid;place-items:center;width:60px;height:60px;border-radius:50%;position:relative;flex:none;background:radial-gradient(circle at 30% 25%,#7dffb0,#25d366 45%,#0b8f4d);box-shadow:0 10px 28px #25d36699,inset 0 0 0 2px #ffffff77,inset 0 -6px 12px #0b8f4d88}
+.wi::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid #d4a94f99;animation:wr 3s ease-in-out infinite}
+.wi::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid #25d366;animation:wpl 2.4s ease-out infinite}
+.wi svg{width:36px;height:36px;filter:drop-shadow(0 2px 3px #0005)}
+@keyframes wr{50%{transform:scale(1.06);opacity:.6}}
+@keyframes wpl{from{transform:scale(.9);opacity:.9}to{transform:scale(1.7);opacity:0}}
+@keyframes wf{50%{transform:translateY(-6px) rotate(-4deg)}}
+.waf{position:fixed;inset-inline-end:16px;bottom:calc(var(--bh) + 14px);z-index:8;display:block;animation:wf 4s ease-in-out infinite}
+body:not(.hm) .waf{display:none}
+.waf .wt{position:absolute;inset-inline-end:78px;bottom:2px;width:240px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 12px 34px #25d36655,0 0 0 1px #25d36644;opacity:0;transform:translateX(10px);transition:.25s;pointer-events:none}
+[dir=ltr] .waf .wt{transform:translateX(-10px)}
+.waf:hover .wt,.waf:focus-visible .wt,.waf:active .wt,.waf.on .wt{opacity:1;transform:none}
+.wt b{display:block;font-size:.95rem}.wt small{display:block;opacity:.7;letter-spacing:.08em;font-size:.72rem}
+.wt em{display:none;font-style:normal;font-size:.8rem;margin-top:4px;color:#0b8f4d}
+.waf:hover em,.waf:active em,.wab:hover em{display:block}.waf:hover small,.waf:active small,.wab:hover small{display:none}
+.wab{display:inline-flex;align-items:center;gap:14px;padding:10px 22px 10px 12px;border-radius:50px;background:linear-gradient(135deg,#25d366,#0b8f4d);color:#fff;box-shadow:0 12px 30px #25d36666,inset 0 0 0 1px #ffffff55;margin-top:10px;animation:wf 5s ease-in-out infinite}
+.wab .wi{width:48px;height:48px;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 2px #ffffff88}
+.wab .wi svg{width:30px;height:30px}.wab .wt b,.wab .wt small,.wab .wt em{color:#fff}
+/* الخريطة الحية */
+.mapw{position:relative;margin:30px 0 0;padding:14px;border-radius:30px;border:2px solid transparent;background:linear-gradient(#fff,#f6f0ff) padding-box,linear-gradient(135deg,#d4a94f,#b9a3f5,#4fc3f7) border-box;box-shadow:0 18px 50px #7a4df033}
+.mh{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.lvb{padding:2px 10px;border-radius:12px;background:#ff4d6d;color:#fff;font-size:.7rem;font-weight:800;animation:pu 2s infinite}
+.mapw iframe{width:100%;height:300px;border:0;border-radius:20px;display:block;background:#e9e3f7}
+.mf{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center;justify-content:space-between}
 </style>
 </head>
 <body class="hm">
@@ -265,11 +304,16 @@ body.hm .up{color:#0a8a4a}body.hm .dn{color:#c62828}
   <footer class="hf">
     <div class="fc">
       <div><h3>القرماني إكس AQX</h3><b>منظومة متكاملة تصنع فرص المستقبل</b><p style="line-height:1.8">القرماني إكس AQX منظومة متكاملة تجمع عوالم التكنولوجيا والأعمال والتجارة والخدمات والمشروعات، وتعمل على بناء بيئة مترابطة تفتح آفاقًا جديدة للابتكار والنمو والاستثمار، وتصنع فرصًا حقيقية للأفراد والشركات والمؤسسات.</p></div>
-      <div><h3>تواصل مع AQX</h3><div class="soc" id="soc"></div><p>✉️ <a href="contact.html">راسلنا</a><br>📍 مصر، أسوان<br><a href="https://www.google.com/maps/search/?api=1&query=Aswan,Egypt" target="_blank" rel="noopener noreferrer">🗺️ افتح الخريطة</a></p><a class="wa" href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20AQX%20%F0%9F%92%9C" target="_blank" rel="noopener noreferrer">💬 راسلنا على واتساب</a></div>
+      <div><h3>تواصل مع AQX</h3><div class="soc" id="soc"></div><p>✉️ <a href="contact.html">راسلنا</a><br>📍 مصر، أسوان</p><div id="wafoot"></div></div>
       <div><h3>النشرة البريدية</h3><p>ابقَ على اتصال مع AQX. تابع الجديد والإعلانات والفرص والعروض عبر بريدك.</p>
         <form id="nf" novalidate><input class="in" type="email" name="e" required maxlength="120" placeholder="بريدك الإلكتروني" autocomplete="email"><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn">اشترك</button></form></div>
       <div><h3>رأيك يصنع الفرق</h3><ul id="fbk"></ul></div>
       <div><h3>تفضيلاتك</h3><ul id="prf"></ul></div>
+    </div>
+    <div class="mapw">
+      <div class="mh"><b id="mapt">📍 مصر — أسوان</b><span class="lvb">LIVE</span></div>
+      <iframe id="mapf" title="Aswan map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="mf"><span id="mapa">📍 مصر، أسوان</span><a class="btn" id="mapo" href="https://www.google.com/maps/search/?api=1&query=Aswan%2C+Egypt" target="_blank" rel="noopener noreferrer">🗺️ افتح في خرائط جوجل</a></div>
     </div>
     <div class="fb"><span>© <span id="yr"></span> ALQURMANI X AQX — جميع الحقوق محفوظة</span><span>إصدار الموقع: AQX Web</span><span>🟢 يعمل · <a href="status.html">آخر تحديث</a></span></div>
   </footer>
@@ -308,6 +352,14 @@ const T=(a,e)=>AR?a:e;
 $('#yr').textContent=$('#yr2').textContent=new Date().getFullYear();
 $('#acc').textContent=T('افتح حساب AQX','Open AQX account');
 $('#ht').textContent=T('اسحب للدوران · عجلة الماوس للتقريب · اضغط على أي عالم','Drag to orbit · Scroll to zoom · Tap a world');
+
+/* ================= واتساب: الرقم والرسالة والمظهر الفخم ================= */
+const WAN='201027834695'; // 01027834695 بالصيغة الدولية لمصر
+const WAM=AR?'مرحباً فريق القرماني إكس AQX 👋\n\nيسعدني التواصل معكم.\n\nأرغب في الاستفسار والتواصل بشأن خدمات ومنظومة القرماني إكس AQX، وأتطلع إلى الحصول على المساعدة أو المعلومات المطلوبة من فريقكم المختص.\n\nموضوع التواصل:\n[يرجى كتابة الاستفسار أو الطلب هنا]\n\nشكراً لكم، وأتمنى لكم دوام التوفيق والنجاح.\n\nمع خالص التحية،\nزائر منصة القرماني إكس AQX 💜':'Hello Alqurmani X AQX team 👋\n\nI am pleased to get in touch with you.\n\nI would like to enquire about the services and ecosystem of Alqurmani X AQX, and I look forward to receiving help or the information I need from your specialised team.\n\nSubject:\n[Please write your enquiry or request here]\n\nThank you, and I wish you continued success.\n\nBest regards,\nA visitor of the Alqurmani X AQX platform 💜';
+const waLink=()=>'https://wa.me/'+WAN+'?text='+encodeURIComponent(WAM);
+const WT=T('تواصل مع القرماني إكس AQX','Contact Alqurmani X AQX'),WS='AQX — Official Communication',WA2=T('نحن هنا لمساعدتك.. تواصل معنا مباشرة عبر واتساب.','We are here to help.. contact us directly on WhatsApp.');
+const WSVG='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path fill="#fff" d="M11.5 9.5c-.5 0-1.2.4-1.5 1.1-.5 1.3-.1 3 1.7 5.2 2.1 2.6 4.5 4 6.5 4.3 1 .1 2-.5 2.3-1.5.1-.4 0-.8-.3-1l-2.1-1.1c-.3-.2-.7-.1-.9.1l-.8 1c-1.3-.5-2.9-2-3.6-3.5l.9-.8c.2-.2.3-.6.1-.9L12.7 10c-.2-.4-.7-.5-1.2-.5z"/></svg>';
+const waHTML=c=>`<a class="${c}" href="${waLink()}" target="_blank" rel="noopener noreferrer" aria-label="${esc(WT)}" title="${esc(WA2)}"><span class="wi">${WSVG}</span><span class="wt"><b>${esc(WT)}</b><small>${WS}</small><em>${esc(WA2)}</em></span></a>`;
 
 /* ================= الصوت: نغمات + مساعد صوتي أنثوي ================= */
 let A;const tone=f=>{try{A=A||new(window.AudioContext||webkitAudioContext)();if(A.state!='running')A.resume();const o=A.createOscillator(),g=A.createGain();o.frequency.value=f;g.gain.value=.05;g.gain.exponentialRampToValueAtTime(.001,A.currentTime+.25);o.connect(g);g.connect(A.destination);o.start();o.stop(A.currentTime+.25)}catch(e){}};
@@ -378,7 +430,7 @@ rows:(k,d)=>`<div>${d[7].map((i,n)=>`<a class="rw" href="${k}-${i[2]}.html" data
 news:(k,d)=>`<div class="nw">${cd(k,d[7][0],'big')}<div>${d[7].slice(1).map(i=>cd(k,i)).join('')}</div></div>`,
 hex:(k,d)=>`<div class="hx">${d[7].map(i=>`<a href="${k}-${i[2]}.html" data-say="${esc(i[1])}"><div><span class="e" style="font-size:2rem">${i[0]}</span><br><b>${esc(i[1])}</b><br><small>${esc(i[3])}</small></div></a>`).join('')}</div>`,
 faq:(k,d)=>`<input class="in" id="fsr" placeholder="${T('🔎 ابحث في المساعدة','🔎 Search help')}" aria-label="search"><div id="fq">${LY.acc(k,d)}</div>`,
-contact:(k,d)=>`<div class="ct"><div>${d[7].map(i=>cd(k,i)).join('')}<p>📍 ${T('مصر، أسوان','Aswan, Egypt')}</p><a class="btn" href="https://wa.me/?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20AQX" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a></div><form id="cf" novalidate><input class="in" name="n" required maxlength="80" placeholder="${T('الاسم','Name')}" autocomplete="name"><input class="in" type="email" name="e" required maxlength="120" placeholder="${T('البريد الإلكتروني','Email')}" autocomplete="email"><textarea class="in" name="m" required maxlength="1000" rows="5" placeholder="${T('رسالتك','Message')}"></textarea><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn">${T('إرسال','Send')}</button><p id="cr"></p></form></div>`,
+contact:(k,d)=>`<div class="ct"><div>${d[7].map(i=>cd(k,i)).join('')}<p>📍 ${T('مصر، أسوان','Aswan, Egypt')}</p>${waHTML('wab')}</div><form id="cf" novalidate><input class="in" name="n" required maxlength="80" placeholder="${T('الاسم','Name')}" autocomplete="name"><input class="in" type="email" name="e" required maxlength="120" placeholder="${T('البريد الإلكتروني','Email')}" autocomplete="email"><textarea class="in" name="m" required maxlength="1000" rows="5" placeholder="${T('رسالتك','Message')}"></textarea><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn">${T('إرسال','Send')}</button><p id="cr"></p></form></div>`,
 warm:(k,d)=>`<div class="g wm">${d[7].map(i=>cd(k,i)).join('')}</div>`,
 path:(k,d)=>d[7].map((i,n)=>`<a class="stp" href="${k}-${i[2]}.html" data-say="${esc(i[1])}"><span class="e" style="font-size:2rem">${i[0]}</span><span style="flex:1"><b>${esc(i[1])}</b><br><small>${esc(i[3])} · ${T('المرحلة','Stage')} ${n+1}</small><div class="b2"><i data-w="${(n+1)*16}"></i></div></span></a>`).join(''),
 feed:(k,d)=>`<div class="fd">${d[7].map(i=>`<a class="post" href="${k}-${i[2]}.html" data-say="${esc(i[1])}"><span class="av">${i[0]}</span><span><b>${esc(i[1])}</b><br><small>${esc(i[3])}</small></span></a>`).join('')}</div>`,
@@ -404,7 +456,7 @@ const cur=CUR[RG]||'USD';
 const lsG=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:v}catch(e){return d}};
 const lsS=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 let vid=lsG('aqxId','');if(!vid){vid='AQX-'+Math.random().toString(36).slice(2,6).toUpperCase();lsS('aqxId',vid)}
-const vis=(+lsG('aqxN','0'))+1;lsS('aqxN',vis);
+const vis=(+lsG('aqxN','0'))+1;lsS('aqxN',vis); // vis>1 = زائر عائد
 const tickP=()=>{const e=$('#pk');if(e)e.textContent=fmt({timeStyle:'medium'})};
 const rPass=()=>{
   let lang='';try{lang=new Intl.DisplayNames([LF],{type:'language'}).of(LNG[0])}catch(e){lang=LNG[0]}
@@ -444,17 +496,75 @@ document.addEventListener('submit',e=>{e.preventDefault();const f=e.target;if(f.
     $('#cr').textContent=T('تم الاستلام. الرقم المرجعي: ','Received. Reference: ')+'AQX-'+Date.now().toString(36).toUpperCase()+T(' (اربط النموذج بالخادم لإرسال فعلي)','')}});
 
 /* ================= الرئيسية (عناصر مشتركة) ================= */
-let count=()=>{}; // تُستبدل بحلقات الإحصائيات في سكريبت الرئيسية v2
+let count=()=>{}; // تُستبدل بحلقات الإحصائيات في سكريبت الرئيسية
 for(let i=0;i<40;i++){const s=document.createElement('i');s.className='sp';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s`;$('#p-home .aur').append(s)}
 const WI=['💰','🏥','💻','💼','📦','🌱'].map(e=>{const d=document.createElement('div');d.className='wd';d.textContent=e;$('#scene').append(d);return d});
-$('#soc').innerHTML=[['W','#25D366','https://wa.me/'],['f','#1877F2','https://facebook.com/'],['✈','#229ED9','https://t.me/'],['X','#111','https://x.com/'],['▶','#F00','https://youtube.com/'],['◎','linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)','https://instagram.com/']].map(s=>`<a href="${s[2]}" target="_blank" rel="noopener noreferrer" style="background:${s[1]}">${s[0]}</a>`).join('')+'<a href="contact.html" style="background:#7a4df0">✉</a>';
+/* السوشيال: واتساب بالأيقونة الجديدة وباقي الأيقونات */
+$('#soc').innerHTML=`<a href="${waLink()}" target="_blank" rel="noopener noreferrer" style="background:linear-gradient(135deg,#25d366,#0b8f4d)" aria-label="WhatsApp">${WSVG}</a>`+[['f','#1877F2','https://facebook.com/','Facebook'],['✈','#229ED9','https://t.me/','Telegram'],['X','#111','https://x.com/','X'],['▶','#F00','https://youtube.com/','YouTube'],['◎','linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)','https://instagram.com/','Instagram']].map(s=>`<a href="${s[2]}" target="_blank" rel="noopener noreferrer" style="background:${s[1]}" aria-label="${s[3]}">${s[0]}</a>`).join('')+'<a href="contact.html" style="background:#7a4df0" aria-label="Email">✉</a>';
+$('#wafoot').innerHTML=waHTML('wab');
+document.body.insertAdjacentHTML('beforeend',waHTML('waf'));
+setTimeout(()=>{const f=$('.waf');if(f){f.classList.add('on');setTimeout(()=>f.classList.remove('on'),6500)}},6500);
 $('#fbk').innerHTML=[['⭐','قيّم تجربتك مع AQX','rate'],['📨','أرسل ملاحظاتك','feedback'],['💡','اقترح تطويرًا جديدًا','suggest'],['📊','شارك في استطلاعات الرأي','polls'],['🚩','أبلغ عن مشكلة في الموقع','report']].map(a=>`<li><a href="feedback-${a[2]}.html">${a[0]} ${a[1]}</a></li>`).join('');
 $('#prf').innerHTML=[['🌍','اللغة المفضلة','language'],['🕒','الدولة والمنطقة الزمنية','region'],['↔️','اتجاه العرض RTL / LTR','direction'],['🍪','إدارة ملفات تعريف الارتباط','cookies'],['🔔','تفضيلات الإشعارات','notifications'],['✨','المؤثرات والحركة','motion'],['♿','سهولة الوصول','accessibility']].map(a=>`<li><a href="preferences-${a[2]}.html">${a[0]} ${a[1]}</a></li>`).join('');
 const mkh=MK.map(m=>`<a href="market-${encodeURIComponent(m[0])}.html">${m[0]} <b>${m[1]}</b> <span class="${m[2]?'up':'dn'}">${m[2]?'▲':'▼'}</span></a>`).join('');
 $('#mk').innerHTML=`<span>📈 AQX LIVE MARKET · ${FLAG} ${cur} (${T('تجريبي','demo')})</span>`+mkh+mkh+mkh;
-const PY=[['Binance','#F0B90B','#000'],['Vodafone Cash','#E60000'],['Orange Cash','#FF7900'],['Etisalat Cash','#6BB539'],['WE Cash','#5B2D8E'],['Fawry','#FFC400','#000'],['InstaPay','#7B2D8B'],['البريد المصري','#00539B'],['Mashreq Neo','#FF5A1F'],['CIB','#003B7A'],['PayPal','#003087'],['Payoneer','#FF4800'],['WebMoney','#1F5FB5'],['Skrill','#862165'],['Payeer','#2F9FDD'],['Neteller','#83BA3B'],['Bankak','#C8102E']];
-const pyh=PY.map(p=>`<a class="py" href="payments-${p[0].replace(/\W+/g,'').toLowerCase()||'post'}.html" style="background:linear-gradient(135deg,${p[1]},${p[1]}bb);color:${p[2]||'#fff'}">${p[0]}</a>`).join('');
+
+/* ================= شريط البنوك والمحافظ بالشعارات ================= */
+const tx=(t,sz,f,y=30,x='')=>`<text x="24" y="${y}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="${sz}" fill="${f}" ${x}>${t}</text>`;
+const PYL=[
+['binance','Binance','#181A20','<g fill="#F0B90B"><path d="M24 9l4.5 4.5L24 18l-4.5-4.5z"/><path d="M14.5 18.5L19 23l-4.5 4.5L10 23z"/><path d="M33.5 18.5L38 23l-4.5 4.5L29 23z"/><path d="M24 28l4.5 4.5L24 37l-4.5-4.5z"/><path d="M24 18.5l4.5 4.5-4.5 4.5-4.5-4.5z"/></g>'],
+['vodafonecash','Vodafone Cash','#E60000','<circle cx="24" cy="24" r="15" fill="#fff"/><path fill="#E60000" d="M26.5 15.5c-5 .3-8.5 4-8.5 8.8 0 4 2.8 7 6.8 7 3.5 0 6-2.5 6-5.6 0-2.6-1.8-4.2-4.2-4.4.1-1.700 1-3 2.400-4.800z"/>'],
+['orangecash','Orange Cash','#FF7900',tx('orange',10.5,'#fff',28)],
+['etisalatcash','Etisalat Cash','#6BB539',tx('e&amp;',22,'#fff',32)],
+['wecash','WE Cash','#5B2D8E',tx('we',22,'#fff',31)],
+['fawry','Fawry','#FFC400',tx('fawry',12,'#0b3d91',28)],
+['instapay','InstaPay','#7B2D8B',tx('insta',11,'#fff',23)+tx('pay',11,'#ffd166',35)],
+['post',T('البريد المصري','Egypt Post'),'#00539B','<rect x="11" y="15" width="26" height="18" rx="3" fill="#fff"/><path d="M11 17l13 10 13-10" fill="none" stroke="#00539B" stroke-width="2.5"/>'],
+['mashreqneo','Mashreq Neo','#FF5A1F',tx('neo',20,'#fff',31)],
+['cib','CIB','#003B7A',tx('CIB',16,'#fff',29)],
+['paypal','PayPal','#F4F7FF','<text x="20" y="35" font-size="30" font-weight="800" font-style="italic" fill="#009cde" font-family="Arial">P</text><text x="25" y="32" font-size="30" font-weight="800" font-style="italic" fill="#003087" font-family="Arial">P</text>'],
+['payoneer','Payoneer','#FF4800',tx('P',28,'#fff',34)+'<circle cx="24" cy="24" r="16" fill="none" stroke="#fff" stroke-width="2"/>'],
+['webmoney','WebMoney','#1F5FB5',tx('WM',17,'#fff',29)],
+['skrill','Skrill','#862165',tx('S',30,'#fff',34,'font-style="italic"')],
+['payeer','Payeer','#2F9FDD',tx('P',28,'#fff',34)],
+['neteller','Neteller','#83BA3B',tx('N',28,'#fff',34)],
+['bankak',T('بنكك','Bankak'),'#C8102E',tx('بنكك',15,'#fff',29)]
+];
+const pyh=PYL.map(p=>`<a class="pay2" href="payments-${p[0]}.html" data-pay="${p[0]}" data-say="${esc(p[1])}"><span class="pl"><img src="assets/payments/${p[0]}.svg" alt="" loading="lazy"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="${p[2]}"/>${p[3]}</svg></span><b>${esc(p[1])}</b></a>`).join('');
 $('#py').innerHTML=pyh+pyh;
+/* لو وُجد ملف الشعار الرسمي في assets/payments/ يظهر بدل الرمز الاحتياطي */
+document.addEventListener('load',e=>{const t=e.target;if(t.tagName=='IMG'&&t.parentElement.classList.contains('pl'))t.parentElement.classList.add('ok')},true);
+
+/* ================= المعبر الفضائي عند الضغط على وسيلة دفع ================= */
+const whoosh=()=>{try{A=A||new(window.AudioContext||webkitAudioContext)();if(A.state!='running')A.resume();const o=A.createOscillator(),g=A.createGain(),f=A.createBiquadFilter(),n=A.currentTime;o.type='sawtooth';f.type='bandpass';f.Q.value=2;o.frequency.setValueAtTime(90,n);o.frequency.exponentialRampToValueAtTime(900,n+2);f.frequency.setValueAtTime(200,n);f.frequency.exponentialRampToValueAtTime(3500,n+2);g.gain.setValueAtTime(.0001,n);g.gain.exponentialRampToValueAtTime(.12,n+1.4);g.gain.exponentialRampToValueAtTime(.0001,n+2.2);o.connect(f);f.connect(g);g.connect(A.destination);o.start();o.stop(n+2.3)}catch(e){}};
+const warp=a=>{
+  if(warp.on)return;warp.on=1;
+  const url=a.getAttribute('href'),nm=a.dataset.say,src=a.querySelector('.pl'),r=src.getBoundingClientRect();
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){location.href=url;return}
+  const ov=document.createElement('div');ov.id='wp';
+  const cv=document.createElement('canvas'),ic=src.cloneNode(true),lb=document.createElement('div');
+  lb.className='wl';lb.textContent=T('عبور إلى ','Crossing to ')+nm;
+  ic.classList.add('fly');ic.style.cssText=`left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px`;
+  ov.append(cv,ic,lb);document.body.append(ov);
+  const W=cv.width=innerWidth,H=cv.height=innerHeight,x=cv.getContext('2d'),cx=W/2,cy=H/2,M=Math.max(W,H),sx=r.left+r.width/2-cx,sy=r.top+r.height/2-cy;
+  const st=Array.from({length:320},()=>({a:Math.random()*6.2832,r:Math.random(),s:.4+Math.random()}));
+  const t0=performance.now(),DU=2300,es=v=>v*v*(3-2*v);
+  whoosh();setTimeout(()=>{location.href=url},DU+900);
+  const f=n=>{
+    const p=cl((n-t0)/DU),e=es(p);
+    x.fillStyle='rgba(7,3,32,.3)';x.fillRect(0,0,W,H);
+    const g=x.createRadialGradient(cx,cy,0,cx,cy,M*.6);g.addColorStop(0,`rgba(122,77,240,${.5*e})`);g.addColorStop(1,'rgba(122,77,240,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+    x.lineCap='round';
+    st.forEach(s=>{const R0=(s.r*.15+e*s.s*1.4)*M*.55,len=(.02+e*.5*s.s)*M*.5,c=Math.cos(s.a),d=Math.sin(s.a);x.strokeStyle=`rgba(${s.s>.7?'79,195,247':'255,255,255'},${.4+.6*s.s})`;x.lineWidth=.8+s.s*1.6;x.beginPath();x.moveTo(cx+c*R0,cy+d*R0);x.lineTo(cx+c*(R0+len),cy+d*(R0+len));x.stroke()});
+    for(let k=0;k<6;k++){const q=(p*2.2+k/6)%1;x.strokeStyle=`rgba(185,163,245,${(1-q)*.5*Math.min(1,p*4)})`;x.lineWidth=2;x.beginPath();x.arc(cx,cy,q*q*M*.7,0,6.2832);x.stroke()}
+    if(p>.3){const gr=M*(.05+.13*e);x.save();x.shadowColor='#b9a3f5';x.shadowBlur=30;x.strokeStyle='#b9a3f5';x.lineWidth=6;x.beginPath();x.arc(cx,cy,gr,0,6.2832);x.stroke();x.strokeStyle='#4fc3f7';x.lineWidth=3;x.beginPath();x.arc(cx,cy,gr*.8,0,6.2832);x.stroke();x.restore()}
+    const k=Math.min(1,p/.55),ek=es(k),tx2=-sx*ek+Math.sin(k*Math.PI)*-120,ty2=-sy*ek,sc=p<.55?1+2.6*ek:3.6*(1-es(cl((p-.55)/.35)))+.05;
+    ic.style.transform=`translate(${tx2}px,${ty2}px) rotateY(${p*1080}deg) rotateZ(${p*180}deg) scale(${sc})`;ic.style.opacity=p>.92?0:1;
+    x.fillStyle=`rgba(255,255,255,${cl((p-.88)/.1)})`;x.fillRect(0,0,W,H);
+    if(p>=1){location.href=url;return}requestAnimationFrame(f)};
+  requestAnimationFrame(f)};
+document.addEventListener('click',e=>{const a=e.target.closest('[data-pay]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.button)return;e.preventDefault();warp(a)});
+addEventListener('pageshow',()=>{warp.on=0;const o=$('#wp');if(o)o.remove()});
 
 /* ================= التنقل بين التبويبات ================= */
 let tab='home',foc=-1,td=105;
@@ -501,7 +611,7 @@ const GATE=7;
     const pl=new TH.Mesh(new TH.SphereGeometry(34,48,48),new TH.MeshBasicMaterial({color:0x6d4fd0}));pl.position.set(-80,-38,-140);sc.add(pl);
     const NS=2000,sp=new Float32Array(NS*3);for(let i=0;i<NS*3;i+=3){sp[i]=(Math.random()-.5)*400;sp[i+1]=(Math.random()-.5)*260;sp[i+2]=-400+Math.random()*500}
     const sg=new TH.BufferGeometry();sg.setAttribute('position',new TH.BufferAttribute(sp,3));sc.add(new TH.Points(sg,new TH.PointsMaterial({color:0xffffff,size:1.3})));
-    const cap=AR?['الوصول إلى البوابة','تفعيل البوابة','العبور إلى عالم AQX','أهلاً بيك في القرماني إكس']:['Approaching the gateway','Activating the gate','Crossing into AQX','Welcome to Alqurmani X'];
+    const cap=AR?['الوصول إلى البوابة','تفعيل البوابة','العبور إلى عالم AQX',vis>1?'أهلاً بيك تاني.. نورتنا من جديد':'أهلاً بيك في القرماني إكس']:['Approaching the gateway','Activating the gate','Crossing into AQX',vis>1?'Welcome back to Alqurmani X':'Welcome to Alqurmani X'];
     const f=()=>{
       if(fin){rd.dispose();return}
       const el=(performance.now()-t0)/1000,p=cl(el/GATE),w=Math.pow(cl((p-.4)/.45),2);
@@ -567,24 +677,25 @@ show(location.hash.slice(1)||'home');requestAnimationFrame(loop);
 setTimeout(meas,300);
 </script>
 
-<!-- ===================== تحديث الرئيسية v2 (سكريبت الرئيسية فقط) ===================== -->
+<!-- ===================== سكريبت الرئيسية (محتوى + لغة + ترحيب + خريطة) ===================== -->
 <script>
 (()=>{
 const HL=AR?'ar':(L||'en').slice(0,2).toLowerCase(),Z=['ar','en','fr','es'].includes(HL)?HL:'en',h=id=>$('#'+id);
 const X={
-ar:{g:['صباح الخير','نهارك سعيد','مساء الخير'],tag:'عالم رقمي واحد.. إمكانات بلا حدود.',desc:'اكتشف القرماني إكس AQX، منظومة متكاملة تجمع التكنولوجيا والأعمال والتجارة والخدمات والمشروعات في عالم واحد، لتفتح أمامك آفاقًا جديدة من الفرص والإمكانات.',b1:'اكتشف منظومة AQX',b2:'ابدأ رحلتك الآن',tr:'🎧 جولة صوتية',st:['منصة نشطة','خدمة متاحة','منتج في المتجر','مشروع قائم','زائر الآن'],sh:'ابدأ في ثلاث خطوات',s:[['اكتشف','تعرّف على عوالم المنظومة ومنصاتها.'],['انضم','افتح حسابك الموحد في AQX.'],['انطلق','استفد من الخدمات والفرص والمشروعات.']],ct:'رحلتك مع AQX تبدأ من هنا.',cd:'انضم إلى منظومة متكاملة من المنصات والخدمات والمشروعات والفرص، واكتشف عالمًا جديدًا من الإمكانات.',c1:'افتح حسابك في AQX',c2:'استكشف المنظومة',c3:'تواصل معنا',w:'أهلاً بيك في القرماني إكس. عالم رقمي واحد، وإمكانات بلا حدود.',cp:' ومرحبًا بزوارنا الكرام من ',vl:'ar-EG'},
-en:{g:['Good morning','Good afternoon','Good evening'],tag:'One digital world.. limitless possibilities.',desc:'Discover Alqurmani X AQX, an integrated ecosystem uniting technology, business, trade, services and projects in one world, opening new horizons of opportunity.',b1:'Discover the AQX ecosystem',b2:'Start your journey',tr:'🎧 Voice tour',st:['Active platforms','Available services','Store products','Running projects','Visitors now'],sh:'Start in three steps',s:[['Discover','Explore the ecosystem and its platforms.'],['Join','Open your unified AQX account.'],['Launch','Use the services, opportunities and projects.']],ct:'Your AQX journey starts here.',cd:'Join an integrated ecosystem of platforms, services, projects and opportunities, and discover a new world of possibilities.',c1:'Open your AQX account',c2:'Explore the ecosystem',c3:'Contact us',w:'Welcome to Alqurmani X. One digital world, with limitless possibilities.',cp:' Greetings to our visitors from ',vl:/^en-/i.test(L)?L:'en-US'},
-fr:{g:['Bonjour','Bon après-midi','Bonsoir'],tag:'Un seul monde numérique.. des possibilités sans limites.',desc:'Découvrez Alqurmani X AQX, un écosystème intégré réunissant technologie, affaires, commerce, services et projets dans un seul monde.',b1:'Découvrir AQX',b2:'Commencer',tr:'🎧 Visite vocale',st:['Plateformes actives','Services disponibles','Produits en boutique','Projets en cours','Visiteurs maintenant'],sh:'Commencez en trois étapes',s:[['Découvrez','Explorez l’écosystème et ses plateformes.'],['Rejoignez','Ouvrez votre compte AQX unifié.'],['Lancez-vous','Profitez des services et des opportunités.']],ct:'Votre voyage avec AQX commence ici.',cd:'Rejoignez un écosystème de plateformes, services, projets et opportunités.',c1:'Ouvrir un compte AQX',c2:'Explorer l’écosystème',c3:'Nous contacter',w:'Bienvenue chez Alqurmani X. Un seul monde numérique, des possibilités sans limites.',cp:' Salutations à nos visiteurs de ',vl:'fr-FR'},
-es:{g:['Buenos días','Buenas tardes','Buenas noches'],tag:'Un mundo digital.. posibilidades sin límites.',desc:'Descubre Alqurmani X AQX, un ecosistema integrado que une tecnología, negocios, comercio, servicios y proyectos en un solo mundo.',b1:'Descubrir AQX',b2:'Empieza ahora',tr:'🎧 Tour de voz',st:['Plataformas activas','Servicios disponibles','Productos en tienda','Proyectos en marcha','Visitantes ahora'],sh:'Empieza en tres pasos',s:[['Descubre','Explora el ecosistema y sus plataformas.'],['Únete','Abre tu cuenta AQX unificada.'],['Despega','Aprovecha servicios y oportunidades.']],ct:'Tu viaje con AQX empieza aquí.',cd:'Únete a un ecosistema de plataformas, servicios, proyectos y oportunidades.',c1:'Abrir cuenta AQX',c2:'Explorar el ecosistema',c3:'Contáctanos',w:'Bienvenido a Alqurmani X. Un solo mundo digital, posibilidades sin límites.',cp:' Saludos a nuestros visitantes de ',vl:'es-ES'}
+ar:{g:['صباح الخير','نهارك سعيد','مساء الخير'],tag:'عالم رقمي واحد.. إمكانات بلا حدود.',desc:'اكتشف القرماني إكس AQX، منظومة متكاملة تجمع التكنولوجيا والأعمال والتجارة والخدمات والمشروعات في عالم واحد، لتفتح أمامك آفاقًا جديدة من الفرص والإمكانات.',b1:'اكتشف منظومة AQX',b2:'ابدأ رحلتك الآن',tr:'🎧 جولة صوتية',st:['منصة نشطة','خدمة متاحة','منتج في المتجر','مشروع قائم','زائر الآن'],sh:'ابدأ في ثلاث خطوات',s:[['اكتشف','تعرّف على عوالم المنظومة ومنصاتها.'],['انضم','افتح حسابك الموحد في AQX.'],['انطلق','استفد من الخدمات والفرص والمشروعات.']],ct:'رحلتك مع AQX تبدأ من هنا.',cd:'انضم إلى منظومة متكاملة من المنصات والخدمات والمشروعات والفرص، واكتشف عالمًا جديدًا من الإمكانات.',c1:'افتح حسابك في AQX',c2:'استكشف المنظومة',c3:'تواصل معنا',w:'أهلاً بيك في القرماني إكس. عالم رقمي واحد، وإمكانات بلا حدود.',cp:' ومرحبًا بزوارنا الكرام من ',r:'أهلاً بيك تاني في القرماني إكس. نورتنا من جديد.',rp:' وسعيدين بعودتك من ',rl:'أهلاً بعودتك',vn:'زيارتك رقم',vl:'ar-EG',mt:'📍 مصر — أسوان',ma:'📍 مصر، أسوان',mo:'🗺️ افتح في خرائط جوجل'},
+en:{g:['Good morning','Good afternoon','Good evening'],tag:'One digital world.. limitless possibilities.',desc:'Discover Alqurmani X AQX, an integrated ecosystem uniting technology, business, trade, services and projects in one world, opening new horizons of opportunity.',b1:'Discover the AQX ecosystem',b2:'Start your journey',tr:'🎧 Voice tour',st:['Active platforms','Available services','Store products','Running projects','Visitors now'],sh:'Start in three steps',s:[['Discover','Explore the ecosystem and its platforms.'],['Join','Open your unified AQX account.'],['Launch','Use the services, opportunities and projects.']],ct:'Your AQX journey starts here.',cd:'Join an integrated ecosystem of platforms, services, projects and opportunities, and discover a new world of possibilities.',c1:'Open your AQX account',c2:'Explore the ecosystem',c3:'Contact us',w:'Welcome to Alqurmani X. One digital world, with limitless possibilities.',cp:' Greetings to our visitors from ',r:'Welcome back to Alqurmani X. Great to see you again.',rp:' Glad to have you back from ',rl:'Welcome back',vn:'Visit',vl:/^en-/i.test(L)?L:'en-US',mt:'📍 Egypt — Aswan',ma:'📍 Aswan, Egypt',mo:'🗺️ Open in Google Maps'},
+fr:{g:['Bonjour','Bon après-midi','Bonsoir'],tag:'Un seul monde numérique.. des possibilités sans limites.',desc:'Découvrez Alqurmani X AQX, un écosystème intégré réunissant technologie, affaires, commerce, services et projets dans un seul monde.',b1:'Découvrir AQX',b2:'Commencer',tr:'🎧 Visite vocale',st:['Plateformes actives','Services disponibles','Produits en boutique','Projets en cours','Visiteurs maintenant'],sh:'Commencez en trois étapes',s:[['Découvrez','Explorez l’écosystème et ses plateformes.'],['Rejoignez','Ouvrez votre compte AQX unifié.'],['Lancez-vous','Profitez des services et des opportunités.']],ct:'Votre voyage avec AQX commence ici.',cd:'Rejoignez un écosystème de plateformes, services, projets et opportunités.',c1:'Ouvrir un compte AQX',c2:'Explorer l’écosystème',c3:'Nous contacter',w:'Bienvenue chez Alqurmani X. Un seul monde numérique, des possibilités sans limites.',cp:' Salutations à nos visiteurs de ',r:'Bon retour chez Alqurmani X. Ravis de vous revoir.',rp:' Heureux de vous revoir depuis ',rl:'Bon retour',vn:'Visite n°',vl:'fr-FR',mt:'📍 Égypte — Assouan',ma:'📍 Assouan, Égypte',mo:'🗺️ Ouvrir dans Google Maps'},
+es:{g:['Buenos días','Buenas tardes','Buenas noches'],tag:'Un mundo digital.. posibilidades sin límites.',desc:'Descubre Alqurmani X AQX, un ecosistema integrado que une tecnología, negocios, comercio, servicios y proyectos en un solo mundo.',b1:'Descubrir AQX',b2:'Empieza ahora',tr:'🎧 Tour de voz',st:['Plataformas activas','Servicios disponibles','Productos en tienda','Proyectos en marcha','Visitantes ahora'],sh:'Empieza en tres pasos',s:[['Descubre','Explora el ecosistema y sus plataformas.'],['Únete','Abre tu cuenta AQX unificada.'],['Despega','Aprovecha servicios y oportunidades.']],ct:'Tu viaje con AQX empieza aquí.',cd:'Únete a un ecosistema de plataformas, servicios, proyectos y oportunidades.',c1:'Abrir cuenta AQX',c2:'Explorar el ecosistema',c3:'Contáctanos',w:'Bienvenido a Alqurmani X. Un solo mundo digital, posibilidades sin límites.',cp:' Saludos a nuestros visitantes de ',r:'Bienvenido de nuevo a Alqurmani X. Es un placer verte otra vez.',rp:' Nos alegra verte de nuevo desde ',rl:'Bienvenido de nuevo',vn:'Visita n.º',vl:'es-ES',mt:'📍 Egipto — Asuán',ma:'📍 Asuán, Egipto',mo:'🗺️ Abrir en Google Maps'}
 },D=X[Z];
 const set=(id,t)=>{h(id).textContent=t};
 set('h-tag',D.tag);set('h-desc',D.desc);set('h-b1',D.b1);set('h-b2',D.b2);set('h-tour',D.tr);set('h-sh',D.sh);set('h-ct',D.ct);set('h-cd',D.cd);set('h-c1',D.c1);set('h-c2',D.c2);set('h-c3',D.c3);
 h('h-s').innerHTML=D.s.map((x,i)=>`<div><b>0${i+1}</b><h4>${esc(x[0])}</h4><p>${esc(x[1])}</p></div>`).join('');
-/* الصوت: لغة ودولة الزائر */
-window.VLG=D.vl;WEL=D.w+(cn?D.cp+cn+'.':'');
-/* تحية حسب الوقت + علم ودولة الزائر */
+/* الترحيب الصوتي: يختلف للزائر العائد */
+const back=vis>1;
+window.VLG=D.vl;WEL=(back?D.r:D.w)+(cn?(back?D.rp:D.cp)+cn+'.':'');
+/* تحية حسب الوقت + علم ودولة الزائر + حالة العودة */
 const gt=()=>{let hr=12;try{hr=+new Intl.DateTimeFormat('en-GB',{hour:'numeric',hourCycle:'h23',timeZone:TZ||undefined}).format(new Date())}catch(e){}
-  h('h-greet').innerHTML=`<span class="fg2">${FLAG}</span><b>${esc(D.g[hr<12?0:hr<17?1:2])}${cn?' · '+esc(cn):''}</b><span>${esc(fmt({timeStyle:'short'}))}</span><small>${esc(cur)}</small>`};
+  h('h-greet').innerHTML=`<span class="fg2">${FLAG}</span>${back?`<b>👋 ${esc(D.rl)}</b>`:''}<b>${esc(D.g[hr<12?0:hr<17?1:2])}${cn?' · '+esc(cn):''}</b><span>${esc(fmt({timeStyle:'short'}))}</span><small>${esc(cur)}${back?' · '+esc(D.vn)+' '+vis:''}</small>`};
 gt();setInterval(gt,20000);
 /* شريط أسماء المنظومات */
 h('h-mq').innerHTML=(P.map(p=>`<span>${p[0]} ${esc(AR?p[1]:p[2])}</span>`).join('<i> ✦ </i>')+'<i> ✦ </i>').repeat(4);
@@ -593,6 +704,9 @@ const SV=[[3,10],[40,100],[120,200],[4,10],[1,50]],COL=['#7a4df0','#4fc3f7','#ff
 $('#live').innerHTML=SV.map((s,i)=>`<div class="sr" style="--c:${COL[i]}"><i><b>0</b></i><span>${esc(D.st[i])}</span></div>`).join('')+`<div class="lv">🔴 LIVE · ${T('أرقام تجريبية','sample numbers')}</div>`;
 const rings=()=>$$('.sr').forEach((e,i)=>{const b=e.querySelector('b'),r=e.querySelector('i'),n=SV[i][0],q=Math.max(8,n/SV[i][1]*100),t=performance.now(),u=()=>{const k=cl((performance.now()-t)/2200);b.textContent=Math.round(n*k);r.style.setProperty('--q',q*k);if(k<1)requestAnimationFrame(u)};u()});
 count=rings;rings();
+/* الخريطة الحية لأسوان: تُحمَّل مباشرة من خرائط جوجل فتظهر بآخر تحديث تلقائيًا */
+set('mapt',D.mt);set('mapa',D.ma);set('mapo',D.mo);
+h('mapf').src='https://maps.google.com/maps?q=Aswan%2C%20Egypt&z=13&hl='+Z+'&output=embed';
 /* تفاعل الكرة والإضاءة */
 const hp=$('#p-home'),sc2=$('#scene');
 hp.addEventListener('pointermove',e=>{const r=sc2.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;sc2.style.setProperty('--ry',x*16+'deg');sc2.style.setProperty('--rx',-y*16+'deg');hp.style.setProperty('--mx',e.clientX+'px');hp.style.setProperty('--my',e.clientY+'px')});
